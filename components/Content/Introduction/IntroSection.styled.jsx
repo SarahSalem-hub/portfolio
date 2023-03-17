@@ -3,23 +3,22 @@ import { animated } from "@react-spring/web";
 import Image from "next/image";
 // import marobg from "../../../public/assets/images/chibi-maruko-chan.jpeg";
 
-
 export const IntroDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 60px;
   margin-bottom: 80px;
-  margin-top: 150px;
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 1024px) {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
   }
 `;
 
 export const NameDiv = styled.div`
+  flex-grow: 1;
   display: flex;
   text-shadow: 4px 5px 6px rgb(0 0 0 / 20%);
   align-items: start;
@@ -28,8 +27,14 @@ export const NameDiv = styled.div`
   // background-color: red;
   letter-spacing: 8px;
   justify-content: center;
-  padding-left : 65px ;
-  
+  // padding-left : 65px ;
+  // background-color: red;
+
+  @media only screen and (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const ImageDiv = styled.div`
@@ -37,10 +42,9 @@ export const ImageDiv = styled.div`
   justify-content: center;
   align-items: center;
   // background-color: blue;
-  margin: 50px;
+  padding: 50px;
   min-width: fit-content;
 `;
-
 
 export const IntroPic = styled(Image)`
   border-radius: 200px;
