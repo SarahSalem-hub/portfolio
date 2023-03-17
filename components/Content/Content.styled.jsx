@@ -6,15 +6,12 @@ export const StyledContent = styled.div`
   border-left: 6px solid var(--primaryGrey);
   border-right: 6px solid var(--primaryGrey);
 //   border-radius: 20px;
-  min-width: 100%;
-//   background-color: rgb(0,0,0,0.5);
-// background-color: #ffffff38;
+  // min-width: 100%;
+
 `;
 
 export const TransparentLayout = styled.div`
   margin: 70px;
-//   background-color: rgb(0,0,0,0.5);
-// background-color: #b1b1b1;
 `;
 
 export const WindowBar= styled.div`
