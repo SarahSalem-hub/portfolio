@@ -28,7 +28,7 @@ const IntroSection = () => {
     <IntroDiv>
       <NameDiv>
         <div className="relative">
-          <p className="text-center "> Hello, I'm</p>
+          <p className="text-center "> Hello, I&apos;m</p>
           <h1 className={sacramento.className} style={{ fontSize: "60px" }}>
             Sarah Salem
           </h1>
@@ -53,8 +53,8 @@ const IntroSection = () => {
           className={pS2P.className}
           style={{ fontSize: "15px", marginBottom: "30px",margin:"40px 0 0 0 ",letterSpacing: "normal",lineHeight:"35px" }}
         >
-          I'm a student in the front-end bootcamp at <a href="https://www.re-coded.com/" target="_blank" style={{color:"#fb5456;"}}>Recoded </a> 
-           in Yemen,this is my first portfolio that I've made and I'm looking forward to enhance it
+          I&apos;m a student in the front-end bootcamp at <a href="https://www.re-coded.com/" target="_blank" style={{color:"#fb5456;"}}>Recoded </a> 
+           in Yemen,this is my first portfolio that I&apos;ve made and I&apos;m looking forward to enhance it
            and fill it with my future projects. 
         </p>
       </NameDiv>

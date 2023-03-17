@@ -12,7 +12,7 @@ export default function Home({setRefValue}) {
   return (
     <>
       <Head>
-        <title>Sarah's portfolio</title>
+        <title>Sarah&apos;s portfolio</title>
       </Head>
       <main>
           <Content setRefValue={setRefValue}/>

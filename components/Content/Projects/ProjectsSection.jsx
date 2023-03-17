@@ -19,6 +19,7 @@ import { IoClose } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
 import { AiFillGithub } from "react-icons/ai"
 import { FcOpenedFolder } from "react-icons/fc"
+import Link from "next/link";
 
 
 const Projects = ({setRefValue}) => {
@@ -63,7 +64,7 @@ const Projects = ({setRefValue}) => {
                       <IoClose className="Icon" size={40} />
                     </div>
               </ProWindowBar>
-              <a href="/SingleProject">
+              <Link href="/SingleProject">
               <ProWindow >
                 <DivPro>
                     <ProImg src={project.image} alt="project" />
@@ -79,7 +80,7 @@ const Projects = ({setRefValue}) => {
                      </div>
                 </ProDetails>
               </ProWindow>
-              </a>
+              </Link>
             </ProjContainer>
           );
         })}

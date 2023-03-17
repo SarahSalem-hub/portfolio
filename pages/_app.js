@@ -5,16 +5,20 @@ import { IoClose } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
 import { Fredoka } from "../components/fonts";
 import "@/styles/globals.css";
-import {  useRef, useState } from "react";
-
+import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function App({ Component, pageProps }) {
   const [isActive, setActive] = useState(false);
-  const [refValue, setRefValue] = useState("val")
-  console.log(refValue,"refValue");
+  const [refValue, setRefValue] = useState("val");
+  console.log(refValue, "refValue");
 
-  function scroll(){
-    refValue.scrollIntoView({behavior: 'smooth', block: 'start' ,inline:"nearest"});
+  function scroll() {
+    refValue.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
   }
   return (
     <>
@@ -35,26 +39,30 @@ export default function App({ Component, pageProps }) {
                   className="backdrop-blur-sm absolute top-12 border-solid border-2 w-full  border-black "
                   onMouseLeave={() => setActive(false)}
                 >
-                  <a href="/About">
-                    <li>
-                      <Title
-                        className={Fredoka.className}
-                        style={{ fontSize: "18px" }}
-                      >
-                        SarahSalem.com/about
-                      </Title>
-                    </li>
-                  </a>
-                  <a  href="#projects" onClick={scroll}>
-                    <li>
-                      <Title
-                        className={Fredoka.className}
-                        style={{ fontSize: "18px" }}
-                      >
-                        SarahSalem.com/projects
-                      </Title>
-                    </li>
-                  </a>
+                  <Link href="/About">
+                    
+                      <li>
+                        <Title
+                          className={Fredoka.className}
+                          style={{ fontSize: "18px" }}
+                        >
+                          SarahSalem.com/about
+                        </Title>
+                      </li>
+                    
+                  </Link>
+                  <Link href="#projects" onClick={scroll}>
+                    
+                      <li>
+                        <Title
+                          className={Fredoka.className}
+                          style={{ fontSize: "18px" }}
+                        >
+                          SarahSalem.com/projects
+                        </Title>
+                      </li>
+                    
+                  </Link>
                 </ul>
               )}
             </div>

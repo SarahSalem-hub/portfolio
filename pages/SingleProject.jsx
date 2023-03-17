@@ -7,8 +7,8 @@ const SingleProject = () => {
             <div className='scroll'>
             <TransparentLayout>
                 <div>
-                    <img src="" alt="" />
-                    
+                    {/* <img src="" alt="" /> */}
+                    {/* use Image instead of img */}
                 </div>
             </TransparentLayout>
             </div>

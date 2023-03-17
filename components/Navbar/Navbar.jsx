@@ -20,7 +20,7 @@ export const NavBarStyle = styled.nav`
 const Navbar = () => {
   return (
      <NavBarStyle>
-     <h1>Sarah's portfolio</h1>
+     <h1>Sarah&apos;s portfolio</h1>
       <ul>
         <Link href="/">About</Link>
         <Link href="/Mycomponent">Projects</Link>
