@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 
 export const StyledContent = styled.div`
-  //   background-color: #b1b1b1;
   background-color: antiquewhite;
   border-left: 6px solid var(--primaryGrey);
   border-right: 6px solid var(--primaryGrey);
-  //   border-radius: 20px;
-  // min-width: 100%;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
 `;
 
 export const TransparentLayout = styled.div`
