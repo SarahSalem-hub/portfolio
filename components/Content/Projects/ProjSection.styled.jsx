@@ -8,7 +8,7 @@ export const ProjsDiv = styled.div`
   flex-direction : column;
   gap : 135px;
   align-items: center;
-  padding : 60px 100px 60px 100px;
+  // padding : 60px 100px 60px 100px;
 
 
   // background-color: red;

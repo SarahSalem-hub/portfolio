@@ -43,7 +43,8 @@ export const ImageDiv = styled.div`
   align-items: center;
   // background-color: blue;
   padding: 50px;
-  min-width: fit-content;
+  // min-width: fit-content;
+  
 `;
 
 export const IntroPic = styled(Image)`
