@@ -50,6 +50,7 @@ export const ImageDiv = styled.div`
 export const IntroPic = styled(Image)`
   border-radius: 200px;
   box-shadow: 26px 5px 32px #707070;
+  min-width: 300px;
 `;
 
 const AnimatedImage = animated(Image);
