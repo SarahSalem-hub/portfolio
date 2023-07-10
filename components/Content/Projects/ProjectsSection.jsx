@@ -25,7 +25,6 @@ import { FiMinus } from "react-icons/fi";
 import { AiFillGithub } from "react-icons/ai";
 import { FcOpenedFolder } from "react-icons/fc";
 import Link from "next/link";
-import { ShimmerText } from "react-shimmer-effects";
 import SingleProjectComp from "./SingleProject";
 import { UserContext } from "@/pages/_app";
 

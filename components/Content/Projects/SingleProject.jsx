@@ -18,7 +18,7 @@ import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
 import { Fredoka } from "@/components/fonts";
-import { ShimmerBadge, ShimmerThumbnail } from "react-shimmer-effects";
+
 
 
 function SingleProjectComp({ id,name, image, description, github }) {
