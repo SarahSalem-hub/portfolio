@@ -32,6 +32,7 @@ const IntroSection = () => {
             style={{
               opacity: show.opacity,
             }}
+            alt="profile pic"
             src={orangeHat}
             width="70"
             height="70"

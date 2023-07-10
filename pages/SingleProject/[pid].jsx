@@ -3,10 +3,11 @@ import {
   TransparentLayout,
 } from "@/components/Content/Content.styled";
 import { ExternalIntroDiv } from "@/components/Content/Introduction/IntroSection.styled";
-import { Description, Details, Name, ProjDetails, ProjDiv, ProjPic, ProjSkillsDiv, ProjectContainer, SingleSkill } from "@/components/Content/Projects/SingleProject.styled";
+import { Description, Details, Name, ProjDetails, ProjDiv, ProjPic, ProjSkillsDiv, ProjectContainer, SingleProPic, SingleSkill } from "@/components/Content/Projects/SingleProject.styled";
 import { db, fetchProjects } from "@/utils/firebase";
 import { Divider } from "@mui/material";
 import { doc, getDoc } from "firebase/firestore";
+import Image from "next/image";
 import React from "react";
 
 const SingleProject = ({project}) => {
@@ -25,13 +26,14 @@ const SingleProject = ({project}) => {
                 <ProjSkillsDiv>
                   {
                     project && project.skills?.map((skill)=>{
-                      return <SingleSkill>{skill}</SingleSkill>
+                      return <SingleSkill key={skill}>{skill}</SingleSkill>
                     })
                   }
                 </ProjSkillsDiv>
               </ProjDetails>
               <ProjPic>
-              <img src={project.image} alt="" />
+              {/* <Image src={project.image} alt="Project pic" width={0} height={0} quality={200}/> */}
+              <SingleProPic src={project.image} alt="Project pic"/>
               </ProjPic>
             </ProjDiv>
             
