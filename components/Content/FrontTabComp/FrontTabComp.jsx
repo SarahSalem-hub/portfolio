@@ -23,7 +23,7 @@ function FrontTabComp() {
   return (
     <SkillsDiv>
       <TitleDiv>
-        <SkillsHeader>what I'm using to code with?</SkillsHeader>
+        <SkillsHeader>what I&apos;m using to code with?</SkillsHeader>
       </TitleDiv>
       <FrontTabLayout>
         {SkillsInfo.map((info) => {
