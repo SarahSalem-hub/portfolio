@@ -1,0 +1,39 @@
+export const SkillsInfo = [
+    {
+        id:0,
+        name:"HTML",
+        logo:"/assets/images/html.png"
+    },
+    {
+        id:1,
+        name:"JavaScript",
+        logo:"/assets/images/java-script.png"
+    },
+    {
+        id:2,
+        name:"ReactJs",
+        logo:"/assets/images/react.png"
+    },
+    {
+        id:3,
+        name:"Firebase",
+        logo:"/assets/images/firebase-icon.svg"
+    },
+    {
+        id:4,
+        name:"Emotion",
+        logo:"/assets/images/emotion.png"
+    },
+    {
+        id:5,
+        name:"Jest",
+        logo:"/assets/images/jest.svg"
+    },
+    {
+        id:6,
+        name:"Next.js",
+        logo:"/assets/images/nextjs.svg"
+    },
+    
+]
+

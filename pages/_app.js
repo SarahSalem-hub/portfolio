@@ -1,79 +1,26 @@
-import { WindowBar } from "@/components/Content/Content.styled";
-import { Title } from "@/components/Content/Projects/ProjSection.styled";
-import { FaCode } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import { FiMinus } from "react-icons/fi";
-import { Fredoka } from "../components/fonts";
 import "@/styles/globals.css";
-import { useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import WindowBarComp from "@/components/WindowBarComp/WindowBarComp";
+export const UserContext = createContext();
 
 export default function App({ Component, pageProps }) {
   const [isActive, setActive] = useState(false);
-  const [refValue, setRefValue] = useState("val");
-  console.log(refValue, "refValue");
+  const [urlName, setUrlName] = useState("SarahSalem.com");
+  const projectSection = useRef();
+  const tabs = useRef();
 
-  function scroll() {
-    refValue.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
-  }
   return (
     <>
-      <WindowBar>
-        <div className="flex flex-row items-center w-full relative">
-          <FaCode className="Icon" size={40} />
-          {/* <Title className={Fredoka.className} style={{fontSize:"18px"}}>The Amazing Portfolio</Title> */}
-          <div
-            className="flex flex-col w-full   "
-            onMouseEnter={() => setActive(true)}
-          >
-            <div className="bg-white  pl-5 pr-5  min-w-min rounded-xl border-solid border-2 border-black w-full ">
-              <Title className={Fredoka.className} style={{ fontSize: "18px" }}>
-                SarahSalem.com
-              </Title>
-              {isActive && (
-                <ul
-                  className="backdrop-blur-sm absolute top-12 border-solid border-2 w-full  border-black "
-                  onMouseLeave={() => setActive(false)}
-                >
-                  <Link href="/About">
-                    
-                      <li>
-                        <Title
-                          className={Fredoka.className}
-                          style={{ fontSize: "18px" }}
-                        >
-                          SarahSalem.com/about
-                        </Title>
-                      </li>
-                    
-                  </Link>
-                  <Link href="#projects" onClick={scroll}>
-                    
-                      <li>
-                        <Title
-                          className={Fredoka.className}
-                          style={{ fontSize: "18px" }}
-                        >
-                          SarahSalem.com/projects
-                        </Title>
-                      </li>
-                    
-                  </Link>
-                </ul>
-              )}
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-row">
-          <FiMinus className="Icon" size={40} />
-          <IoClose className="Icon" size={40} />
-        </div>
-      </WindowBar>
-      <Component {...pageProps} setRefValue={setRefValue} />
+      <UserContext.Provider value={{projectSection,tabs}}>
+        <WindowBarComp
+          urlName={urlName}
+          isActive={isActive}
+          setActive={setActive}
+          setUrlName={setUrlName}
+        />
+        <Component {...pageProps}  />
+      </UserContext.Provider>
     </>
   );
 }

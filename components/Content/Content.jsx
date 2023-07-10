@@ -1,35 +1,26 @@
-import styled from "@emotion/styled";
-import React, { useState } from "react";
-import Navbar from "../Navbar/Navbar";
+import React, { useEffect, useState } from "react";
+
 import IntroSection from "./Introduction/IntroSection";
-import Projects from "./Projects/ProjectsSection";
-import { ProWindowBar, Title } from "./Projects/ProjSection.styled";
-import { FaCode } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import { FiMinus } from "react-icons/fi";
-import { Fredoka } from "../fonts";
 import { StyledContent, TransparentLayout, WindowBar } from "./Content.styled";
+import ProjectsSection from "./Projects/ProjectsSection";
+import { ExternalIntroDiv } from "./Introduction/IntroSection.styled";
+import Skills from "../../sections/Skills/Skills";
+import { db } from "@/utils/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
-
-const Content = ({setRefValue}) => {
- 
+const Content = ({ projects }) => {
   return (
-    <>
-        
-    
+    // <>
     <StyledContent>
-      
-      <div className="scroll">
-        {/* <Navbar /> */}
-        <TransparentLayout>
-          <IntroSection />
-          <Projects setRefValue={setRefValue} />
-        </TransparentLayout>
-      </div>
+      <TransparentLayout>
+        <IntroSection />
+        <Skills />
+        <ProjectsSection  projects={projects} />
+        
+      </TransparentLayout>
     </StyledContent>
-    </>
+    // </>
   );
-  
 };
 
 export default Content;

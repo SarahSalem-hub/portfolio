@@ -1,19 +1,14 @@
-// import { mynerve, pS2P, sacramento } from "@/pages/_app";
-import Image from "next/image";
 import React, { useState } from "react";
 import {
+  ExternalIntroDiv,
   ImageDiv,
   IntroDiv,
-  IntroImage,
   IntroPic,
   NameDiv,
   StyledAnimatedImage,
 } from "./IntroSection.styled";
 import introImage from "../../../public/assets/images/intro-image.jpg";
-import hat from "../../../public/assets/images/001-hermes.png";
-import { useSpring, animated } from "@react-spring/web";
-import styled from "@emotion/styled";
-import yellowHat from "../../../public/assets/images/001-pamela-hat.png";
+import { useSpring } from "@react-spring/web";
 import orangeHat from "../../../public/assets/images/pamela-hat.png";
 import { pS2P, sacramento } from "@/components/fonts";
 
@@ -25,11 +20,12 @@ const IntroSection = () => {
   });
   // console.log(show);
   return (
-    <IntroDiv>
+    <ExternalIntroDiv>
+    <IntroDiv id="intro">
       <NameDiv>
         <div className="relative">
           <p className="text-center "> Hello, I&apos;m</p>
-          <h1 className={sacramento.className} style={{ fontSize: "60px" }}>
+          <h1 className={sacramento.className} >
             Sarah Salem
           </h1>
           <StyledAnimatedImage
@@ -53,21 +49,23 @@ const IntroSection = () => {
           className={pS2P.className}
           style={{ fontSize: "15px", marginBottom: "30px",margin:"40px 0 0 0 ",letterSpacing: "normal",lineHeight:"35px" }}
         >
-          I&apos;m a student in the front-end bootcamp at <a href="https://www.re-coded.com/" target="_blank" style={{color:"#fb5456;"}}>Recoded </a> 
+          I&apos;m a graduate from the front-end bootcamp at <a href="https://www.re-coded.com/" target="_blank" style={{color:"#fb5456"}}>Recoded </a> 
            in Yemen,this is my first portfolio that I&apos;ve made and I&apos;m looking forward to enhance it
            and fill it with my future projects. 
         </p>
       </NameDiv>
       <ImageDiv>
         <IntroPic
+          alt="portfolio intro section picture"
           onMouseEnter={() => setHat(true)}
           onMouseLeave={() => setHat(false)}
           src={introImage}
-          width="360"
+          width="0"
           quality={70}
         />
       </ImageDiv>
     </IntroDiv>
+    </ExternalIntroDiv>
   );
 };
 

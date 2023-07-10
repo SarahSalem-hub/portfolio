@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBX-DGKR1oZJsBdwlaCqqyH1WbRRirblzQ",
@@ -11,3 +11,12 @@ const firebaseConfig = {
   };
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+export const fetchProjects = async ()=>{
+  const projectsColl = collection(db, "projects");
+  const getProjsDocs = await getDocs(projectsColl);
+  const getProjs = getProjsDocs.docs.map((doc) => {
+    return { ...doc.data(), id: doc.id };
+  });
+  return getProjs;
+}

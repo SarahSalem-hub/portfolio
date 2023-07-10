@@ -1,9 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   DivPro,
+  FolderIconDiv,
+  ImageAndDetails,
+  LinksDiv,
   ProDetails,
   ProImg,
   ProjContainer,
+  ProjectsSectionDiv,
+  ProjImageDiv,
   ProjsDiv,
   ProSectionHeader,
   ProWindow,
@@ -17,77 +22,45 @@ import { Fredoka } from "@/components/fonts";
 import { FaCode } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
-import { AiFillGithub } from "react-icons/ai"
-import { FcOpenedFolder } from "react-icons/fc"
+import { AiFillGithub } from "react-icons/ai";
+import { FcOpenedFolder } from "react-icons/fc";
 import Link from "next/link";
+import { ShimmerText } from "react-shimmer-effects";
+import SingleProjectComp from "./SingleProject";
+import { UserContext } from "@/pages/_app";
 
+const ProjectsSection = ({ projects }) => {
+  const [projectsCount, setProjectsCount] = useState(2);
+  const scrollToRef = useRef();
+  const { projectSection } = useContext(UserContext);
 
-const Projects = ({setRefValue}) => {
-  const [projects, setProjects] = useState();
-  const projectsColl = collection(db, "projects");
-   const scrollToRef = useRef()
-
-  const fetchProjs = async () => {
-    const getProjsDocs = await getDocs(projectsColl);
-    const getProjs = getProjsDocs.docs.map((doc) => {
-      return { ...doc.data(), id: doc.id };
-    });
-    setProjects(getProjs);
-  };
-  useEffect(() => {
-    fetchProjs();
-    setRefValue(scrollToRef.current)
-  }, []);
-  
   return (
-    <div ref={scrollToRef} className="relative flex flex-col gap-32 justify-center w-full">
-      <div className="relative flex justify-center ">
-      <ProSectionHeader className={Fredoka.className}> My Projects </ProSectionHeader>
-      <FcOpenedFolder className="Icon absolute " size={100} />
-      <a href=""></a>
-      </div>
-      
-      <ProjsDiv  >
-        {projects?.map((project) => {
-          return (
-            <ProjContainer key={project.name}>
-              {/* <Image src={project.image} width="100" height="100"/> */}
-              <ProWindowBar>
-                    <div className="flex flex-row">
-                      <FaCode className="Icon" size={40} />
-                      <Title className={Fredoka.className}>
-                        {project.name}
-                      </Title>
-                    </div>
-                    <div className="flex flex-row">
-                      <FiMinus className="Icon" size={40} />
-                      <IoClose className="Icon" size={40} />
-                    </div>
-              </ProWindowBar>
-              <Link href="/SingleProject">
-              <ProWindow >
-                <DivPro>
-                    <ProImg src={project.image} alt="project" />
-                </DivPro>
-                <ProDetails>
-                    <Title className={Fredoka.className} style={{fontSize:"18px"}}>
-                    {project.description}
-                    </Title>
-                    <div className="flex flex-row justify-end ">
-                      <a href={project.github} target="_blank">
-                      <AiFillGithub className="Icon" size={50} />
-                      </a>
-                     </div>
-                </ProDetails>
-              </ProWindow>
-              </Link>
-            </ProjContainer>
-          );
-        })}
-        
+    <ProjectsSectionDiv ref={projectSection}>
+      <FolderIconDiv>
+        <ProSectionHeader> My Projects </ProSectionHeader>
+        <FcOpenedFolder size={100} />
+        <a href=""></a>
+      </FolderIconDiv>
+
+      <ProjsDiv ref={scrollToRef}>
+        {projects?.length === 0
+          ? [...Array(projectsCount)].map((project) => {
+              return <SingleProjectComp />;
+            })
+          : projects?.map((project) => {
+              return (
+                <SingleProjectComp
+                  id={project.id}
+                  name={project.name}
+                  image={project.image}
+                  description={project.description}
+                  github={project.github}
+                />
+              );
+            })}
       </ProjsDiv>
-    </div>
+    </ProjectsSectionDiv>
   );
 };
 
-export default Projects;
+export default ProjectsSection;
