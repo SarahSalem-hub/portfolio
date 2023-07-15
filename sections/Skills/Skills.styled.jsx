@@ -365,7 +365,7 @@ export const BehindTab = styled.div`
   @media screen and (max-width: 1200px) {
     
     width: 130px;
-   div:first-child{ 
+   div:first-of-type{ 
     font-size: 15px;
    }
   

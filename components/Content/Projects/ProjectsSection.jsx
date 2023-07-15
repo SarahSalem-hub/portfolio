@@ -44,7 +44,7 @@ const ProjectsSection = ({ projects }) => {
       <ProjsDiv ref={scrollToRef}>
         {projects?.length === 0
           ? [...Array(projectsCount)].map((project) => {
-              return <SingleProjectComp key={project.id}/>;
+              return <SingleProjectComp key={project?.id}/>;
             })
           : projects?.map((project) => {
               return (

@@ -35,32 +35,20 @@ import SkillsTab from "../../components/Content/SkillsTab/SkillsTab";
 import AboutMeTab from "../../components/Content/AboutMeTab/AboutMeTab";
 import { UserContext } from "@/pages/_app";
 
-function Skills() {
+function Skills({likes}) {
   const [overlape, setOverlape] = useState({
-    frontTab: 1,
-    BehindTab: 0,
+    frontTab: 0,
+    BehindTab: 1,
     contactTab: 0,
   });
   const {tabs} = useContext(UserContext)
 
 
-  console.log("overlap", overlape);
+  // console.log("overlap", overlape);
   return (
     <SkillsSection ref={tabs}>
       <Tabs>
-        <FrontTab>
-          <FrontTabHeaderLayout
-            onClick={() =>
-              setOverlape({ frontTab: 1, BehindTab: 0, contactTab: 0 })
-            }
-            overlap={overlape.frontTab}
-          >
-            <Title font="25px">Skills</Title>
-            <TabClosing>
-              <IoClose className="Icon" size={33} />
-            </TabClosing>
-          </FrontTabHeaderLayout>
-        </FrontTab>
+        
         <BehindTab>
           <BehindTabHeaderLayout
             onClick={() =>
@@ -74,6 +62,19 @@ function Skills() {
             </TabClosing>
           </BehindTabHeaderLayout>
         </BehindTab>
+        <FrontTab>
+          <FrontTabHeaderLayout
+            onClick={() =>
+              setOverlape({ frontTab: 1, BehindTab: 0, contactTab: 0 })
+            }
+            overlap={overlape.frontTab}
+          >
+            <Title font="25px">Skills</Title>
+            <TabClosing>
+              <IoClose className="Icon" size={33} />
+            </TabClosing>
+          </FrontTabHeaderLayout>
+        </FrontTab>
         <ContactTab>
           <ContactTabHeaderLayout
             onClick={() =>
@@ -94,7 +95,7 @@ function Skills() {
           case overlape.frontTab === 1:
             return <SkillsTab />;
           case overlape.BehindTab === 1:
-            return <AboutMeTab setOverlape={setOverlape} />;
+            return <AboutMeTab setOverlape={setOverlape} likes={likes} />;
           case overlape.contactTab === 1:
             return <ContactFormTab />;
         }

@@ -1,5 +1,5 @@
 import Content from "@/components/Content/Content";
-import { db, fetchProjects } from "@/utils/firebase";
+import { db, fetchLikes, fetchProjects } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Head from "next/head";
 
@@ -9,7 +9,7 @@ import Head from "next/head";
 // import styles from '@/styles/Home.module.css'
 // const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({setRefValue, projects}) {
+export default function Home({setRefValue, projects , likes}) {
   console.log("content page", projects);
   return (
     <>
@@ -17,7 +17,7 @@ export default function Home({setRefValue, projects}) {
         <title>Sarah&apos;s portfolio</title>
       </Head>
       <main>
-          <Content setRefValue={setRefValue} projects={projects}/>
+          <Content setRefValue={setRefValue} projects={projects} likes={likes}/>
       </main>
     </>
   );
@@ -25,9 +25,11 @@ export default function Home({setRefValue, projects}) {
 
 export async function getStaticProps() {
     const proJs = await fetchProjects()
+    const likes = await fetchLikes()
   return {
       props: {
-          projects : proJs
+          projects : proJs,
+          likes : likes
       },
   };
 }

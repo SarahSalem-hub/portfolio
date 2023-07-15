@@ -22,7 +22,7 @@ import { Fredoka } from "@/components/fonts";
 
 
 function SingleProjectComp({ id,name, image, description, github }) {
-  console.log("name" , name);
+  // console.log("name" , name);
   
   return (
     <ProjContainer key={name ? name : "0"}>

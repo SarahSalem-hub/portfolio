@@ -8,15 +8,14 @@ import Skills from "../../sections/Skills/Skills";
 import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-const Content = ({ projects }) => {
+const Content = ({ projects,likes }) => {
   return (
     // <>
     <StyledContent>
       <TransparentLayout>
         <IntroSection />
-        <Skills />
+        <Skills likes= {likes}/>
         <ProjectsSection  projects={projects} />
-        
       </TransparentLayout>
     </StyledContent>
     // </>

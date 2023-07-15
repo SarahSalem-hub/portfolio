@@ -150,17 +150,33 @@ export const SingleStatistic = styled.div`
   font-size: calc(12px + 0.3vw);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   color: #3a4156;
   text-align: center;
   /* background-color: #8b8baf; */
 
   & div{
+    display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
     width: 100%;
     max-width: 100px;
     min-width: 50px;
+    height: 50px;
     /* background-color: firebrick; */
+  }
+  & div:last-child{
+    /* display: flex; */
+  /* flex-direction: column; */
+  justify-content: space-around;
+  align-items: center;
+    /* width: 100%;
+    max-width: 100px;
+    min-width: 50px;
+    height: 50px; */
+    /* background-color: #af7f7f; */
   }
   
 `
@@ -187,7 +203,7 @@ export const SingleBioInfo = styled.p`
 width: 100%;
   color: #3a4156;
   /* font-size: 16px; */
-  font-size:calc(15px + 0.3vw);
+  font-size:calc(13px + 0.3vw);
   font-family: ${Fredoka.style.fontFamily};
   
   @media screen and (max-width: 500px) {
@@ -195,24 +211,29 @@ width: 100%;
     }
 `
 
-export const MessageDiv = styled.div`
+export const ButtonsDiv = styled.div`
   width: 100%;
   height: 80px;
   /* background-color: aliceblue; */
   display: flex;
   justify-content: center;
+  gap: 9px;
+  padding-inline: 20px;
   align-items: center;
 `
-export const MessageButton = styled.button`
+export const ProfileButton = styled.button`
   width: 94%;
   height: 60%;
-  border: 2px solid #808080;
+  /* border: 2px solid #808080; */
+  border: 2px solid #3a4156;
   /* background-color: red; */
   border-radius: 10px;
-  font-size: 16px;
+  font-size: calc(10px + 0.5vw);
   font-family: ${Fredoka.style.fontFamily};
-  color: #3a4156;
+  color: ${props => props.buttonColor ? "antiquewhite" : "#3a4156" };
   letter-spacing: 2px;
+  background-color: ${props => props.buttonColor ? "#3a4156" : "transparent" };
+  padding: 7px;
 `
 
 export const LinksPicsDiv = styled.div`
@@ -224,7 +245,7 @@ export const LinksPicsDiv = styled.div`
   gap: 20px;
 `
 export const LinkPic = styled.div`
-  width: 70px;
+  width: 65px;
   /* background-color: red; */
   display: flex;
   justify-content: center;
@@ -238,6 +259,10 @@ export const LinkPic = styled.div`
     border-spacing: 10px; */
     width: 100%;
   }
+
+  @media screen and (max-width: 600px) {
+   width: 50px;
+    }
 
   @keyframes pulse {
   0% {
