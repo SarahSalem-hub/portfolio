@@ -2,14 +2,14 @@ import styled from "@emotion/styled";
 import { Fredoka } from "@/components/fonts";
 
 export const BehindTabDiv = styled.div`
-  padding: 30px 0 87px 0;
+  padding: 30px 2px 30px 2px;
   width: 80%;
   z-index: 0;
   /* height: 100%; */
   border: 5px solid #3a4156;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   border-radius: 0 25px 25px 25px;
   /* position: relative; */
@@ -108,7 +108,7 @@ export const ProfileInfo = styled.div`
        justify-content: center;
        align-items: center;
        height: 100%;
-       gap: 15px;
+       gap: 0px;
        margin-bottom: 18px;
     }
   
@@ -129,6 +129,9 @@ export const ProfilePicDiv = styled.div`
     border-spacing: 10px; */
     width: 100%;
   }
+  @media screen and (max-width: 600px) {
+   width: 80px;
+    }
 `
 export const ProfileStatistics = styled.div`
   
@@ -190,11 +193,9 @@ export const BioDiv = styled.div`
   padding-inline: 15px;
   padding: 20px;
 
-  /* @media screen and (min-width: 1200px) {
-       align-items: center;
-       justify-content: start;
-       text-align: start;
-    } */
+  @media screen and (max-width: 600px) {
+       padding: 0 20px 20px 20px ;
+    }
   /* border : 2px solid black; */
  
 `
@@ -241,6 +242,7 @@ export const LinksPicsDiv = styled.div`
   /* height: 80px; */
   display: flex;
   /* background-color: aqua; */
+  margin-bottom: 10px;
   padding: 10px 10px 10px 25px;
   gap: 20px;
 `

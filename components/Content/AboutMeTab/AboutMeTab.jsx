@@ -38,12 +38,12 @@ import { BiInfinite } from "react-icons/bi";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { fetchLikes, updateLikes } from "@/utils/firebase";
 import { LikeButton, Provider } from "@lyket/react";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Divider } from "@mui/material";
 
 let linkedInLink = "https://www.linkedin.com/in/sarah-al-dhaferi-980270277/";
 let githubLink = "https://github.com/SarahSalem-hub";
 
-function AboutMeTab({ setOverlape, likes }) {
+function AboutMeTab({ setOverlape }) {
   const [fillHeart, setFillHeart] = useState(false);
   const [buttonColor, setButtonColor] = useState(false);
   const [hitInterestingBut, setHitInterestingBut] = useState(false);
@@ -75,7 +75,8 @@ function AboutMeTab({ setOverlape, likes }) {
     const timer = setTimeout(() => setHitInterestingBut(false), 1000);
     return () => {clearTimeout(timer)};
   }, [hitInterestingBut])
-  
+
+
   return (
     <Provider apiKey="pt_b7bab4420735512aad14ebb2e3af3d">
       <BehindTabDiv>
@@ -171,8 +172,11 @@ function AboutMeTab({ setOverlape, likes }) {
                   <img src="/assets/images/github.svg" alt="github" />
                 </LinkPic>
               </Link>
+              {/* <hr style={{color:"red" , height:"100px"}}/> */}
             </LinksPicsDiv>
+          
           </div>
+         
         </InstagramAccountDiv>
       </BehindTabDiv>
     </Provider>
