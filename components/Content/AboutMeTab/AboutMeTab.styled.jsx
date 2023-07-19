@@ -219,12 +219,14 @@ export const SingleBioInfo = styled.p`
 /* background-color: aqua; */
 width: 100%;
   color: #3a4156;
+  margin: 0;
   /* font-size: 16px; */
   font-size:calc(13px + 0.3vw);
   font-family: ${Fredoka.style.fontFamily};
   
   @media screen and (max-width: 500px) {
     text-align: center;
+    margin: 2px;
     }
 `
 
