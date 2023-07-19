@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   const projectSection = useRef();
   const tabs = useRef();
   // const activeTab = useRef()
-  const [activeTab, setActiveTab] = useState("sth")
+  const [activeTab, setActiveTab] = useState("aboutMe")
 
   useEffect(() => {
     
