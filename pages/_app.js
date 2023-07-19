@@ -9,10 +9,17 @@ export default function App({ Component, pageProps }) {
   const [urlName, setUrlName] = useState("SarahSalem.com");
   const projectSection = useRef();
   const tabs = useRef();
+  // const activeTab = useRef()
+  const [activeTab, setActiveTab] = useState("sth")
 
+  useEffect(() => {
+    
+    console.log("activeTab",activeTab);
+  }, [activeTab])
+  
   return (
     <>
-      <UserContext.Provider value={{projectSection,tabs}}>
+      <UserContext.Provider value={{projectSection,tabs,setActiveTab,activeTab}}>
         <WindowBarComp
           urlName={urlName}
           isActive={isActive}

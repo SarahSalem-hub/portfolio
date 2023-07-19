@@ -15,8 +15,7 @@ import {
 import { UserContext } from "@/pages/_app";
 
 function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
-  const { projectSection,tabs} = useContext(UserContext);
-  const sectionNames = useContext(UserContext)
+  const { projectSection,tabs,activeTab} = useContext(UserContext);
   const [projectSectionY, setprojectSectionY] = useState();
   const [projectSectionHeight, setprojectSectionHeight] = useState();
   const [tabsY, setTabsY] = useState();
@@ -44,10 +43,10 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
       ) {
         setUrlName("SarahSalem.com/projects");
       }else if (
-        window.scrollY >= tabsY - 100 &&
+        window.scrollY >= tabsY - 300 &&
         window.scrollY <= tabsY + tabsHeight
       ) {
-        setUrlName("SarahSalem.com/Skills");
+        setUrlName(`SarahSalem.com/${activeTab}`);
       }
       
       else {
@@ -69,6 +68,10 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
     window.addEventListener("scroll", getProjectsPosition);
     window.addEventListener("scroll", getTabsPosition);
   }, []);
+  
+  useEffect(() => {
+    checkURLName()
+  }, [activeTab])
   
   
   return (

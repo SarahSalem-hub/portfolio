@@ -21,7 +21,7 @@ import { SkillsInfo } from "../../../sections/Skills/SkillsInfo";
 
 function SkillsTab() {
   return (
-    <SkillsDiv>
+    <SkillsDiv >
       <TitleDiv>
         <SkillsHeader>what I&apos;m using to code with?</SkillsHeader>
       </TitleDiv>

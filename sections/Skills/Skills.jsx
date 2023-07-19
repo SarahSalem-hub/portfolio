@@ -41,7 +41,7 @@ function Skills({likes}) {
     BehindTab: 1,
     contactTab: 0,
   });
-  const {tabs} = useContext(UserContext)
+  const {tabs,setActiveTab} = useContext(UserContext)
 
 
   // console.log("overlap", overlape);
@@ -52,7 +52,8 @@ function Skills({likes}) {
         <BehindTab>
           <BehindTabHeaderLayout
             onClick={() =>
-              setOverlape({ frontTab: 0, BehindTab: 1, contactTab: 0 })
+              {setOverlape({ frontTab: 0, BehindTab: 1, contactTab: 0 });
+              setActiveTab("aboutMe")}
             }
             overlap={overlape.BehindTab}
           >
@@ -65,7 +66,10 @@ function Skills({likes}) {
         <FrontTab>
           <FrontTabHeaderLayout
             onClick={() =>
-              setOverlape({ frontTab: 1, BehindTab: 0, contactTab: 0 })
+              
+            {setOverlape({ frontTab: 1, BehindTab: 0, contactTab: 0 });
+            setActiveTab("skills")}
+              
             }
             overlap={overlape.frontTab}
           >
@@ -78,7 +82,8 @@ function Skills({likes}) {
         <ContactTab>
           <ContactTabHeaderLayout
             onClick={() =>
-              setOverlape({ frontTab: 0, BehindTab: 0, contactTab: 1 })
+             { setOverlape({ frontTab: 0, BehindTab: 0, contactTab: 1 });
+             setActiveTab("contactMe")}
             }
             overlap={overlape.contactTab}
           >
@@ -95,7 +100,7 @@ function Skills({likes}) {
           case overlape.frontTab === 1:
             return <SkillsTab />;
           case overlape.BehindTab === 1:
-            return <AboutMeTab setOverlape={setOverlape} likes={likes} />;
+            return <AboutMeTab  setOverlape={setOverlape} likes={likes} />;
           case overlape.contactTab === 1:
             return <ContactFormTab />;
         }

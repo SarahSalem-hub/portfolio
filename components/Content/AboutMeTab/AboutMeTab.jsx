@@ -82,7 +82,7 @@ function AboutMeTab({ setOverlape }) {
 
   return (
     <Provider apiKey="pt_b7bab4420735512aad14ebb2e3af3d">
-      <BehindTabDiv>
+      <BehindTabDiv >
         <InstagramAccountDiv>
           <div>
             <AccountHeader>

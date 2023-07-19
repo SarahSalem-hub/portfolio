@@ -82,7 +82,7 @@ const ContactFormTab = () => {
   console.log("user info", UserMsgInfo);
   console.log("placeholder", placeHolder);
   return (
-    <ContactDiv className={Fredoka.className}>
+    <ContactDiv className={Fredoka.className} >
       <ChatBox>
         <ChatBoxComp UserMsgInfo={UserMsgInfo} />
 
