@@ -39,6 +39,10 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { fetchLikes, updateLikes } from "@/utils/firebase";
 import { LikeButton, Provider } from "@lyket/react";
 import { CircularProgress, Divider } from "@mui/material";
+import { GoLightBulb } from "react-icons/gi";
+import { FaLightbulb } from "react-icons/fa";
+import { Image, Popup } from "semantic-ui-react";
+import "semantic-ui-css/semantic.min.css";
 
 let linkedInLink = "https://www.linkedin.com/in/sarah-al-dhaferi-980270277/";
 let githubLink = "https://github.com/SarahSalem-hub";
@@ -51,31 +55,30 @@ function AboutMeTab({ setOverlape }) {
 
   function fillHeartFun() {
     setHitInterestingBut(true);
-  
+
     if (fillHeart) {
       localStorage.setItem("heartChecker", JSON.stringify(false));
     } else {
       localStorage.setItem("heartChecker", JSON.stringify(true));
-      
     }
   }
- 
-  function returnCirularComp(){
-    return <CircularProgress style={{padding: "10px"}} color="inherit" />
+
+  function returnCirularComp() {
+    return <CircularProgress style={{ padding: "10px" }} color="inherit" />;
   }
 
   useEffect(() => {
     const getHeartChecker = JSON.parse(localStorage.getItem("heartChecker"));
     setFillHeart(getHeartChecker);
     setButtonColor(getHeartChecker);
-    
   }, [likess]);
 
   useEffect(() => {
     const timer = setTimeout(() => setHitInterestingBut(false), 1000);
-    return () => {clearTimeout(timer)};
-  }, [hitInterestingBut])
-
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [hitInterestingBut]);
 
   return (
     <Provider apiKey="pt_b7bab4420735512aad14ebb2e3af3d">
@@ -89,7 +92,23 @@ function AboutMeTab({ setOverlape }) {
                 <IoIosArrowDown />
               </AccountName>
               <AccountIcons>
-                <BiMenu size={20} />
+                
+                <Popup
+                  content={'Welcome! \nthis is my simple portfolio website, I hope you ❤️ it ! \n \nI truly would want to see your review by clicking the "interesting" button down there ↙️ '}
+                  key="0"
+                  header="Hello there!"
+                  trigger={
+                    <Image
+                      src="/assets/images/wired-lineal-1872-small-cute-monster (1).gif"
+                      alt=""
+                    />
+                  }
+                  position="bottom right"
+                  style={{
+                    whiteSpace: "pre-wrap",
+                  }}
+                />
+                
               </AccountIcons>
             </AccountHeader>
             <ProfileInfo>
@@ -98,11 +117,9 @@ function AboutMeTab({ setOverlape }) {
               </ProfilePicDiv>
               <ProfileStatistics>
                 <SingleStatistic>
+                  <div>{hitInterestingBut ? returnCirularComp() : likess}</div>
                   <div>
-                    {hitInterestingBut ? returnCirularComp() : likess}
-                  </div>
-                  <div>
-                  {fillHeart ? (
+                    {fillHeart ? (
                       <AiFillHeart size={20} />
                     ) : (
                       <AiOutlineHeart size={20} />
@@ -127,27 +144,28 @@ function AboutMeTab({ setOverlape }) {
               <SingleBioInfo>Life 💪😎 survival!</SingleBioInfo>
             </BioDiv>
             <ButtonsDiv>
-             
-
-              <ProfileButton buttonColor={buttonColor} 
-              onClick={fillHeartFun}
-              disabled = {hitInterestingBut}
+              <ProfileButton
+                buttonColor={buttonColor}
+                onClick={fillHeartFun}
+                disabled={hitInterestingBut}
               >
                 <LikeButton
                   id="do-you-like-my-profile"
                   namespace="aboutMeTab"
                   hideCounterIfLessThan={0}
-                  disabled = {hitInterestingBut}
+                  disabled={hitInterestingBut}
                 >
                   {({ handlePress, totalLikes }) => (
                     <>
-                      
-                      {hitInterestingBut? 
-                        <CircularProgress style={{padding: "10px"}} color="inherit" />
-                        : 
-                        <div onClick={handlePress}>Interesting! 🤩</div> 
-                      }
-                      
+                      {hitInterestingBut ? (
+                        <CircularProgress
+                          style={{ padding: "10px" }}
+                          color="inherit"
+                        />
+                      ) : (
+                        <div onClick={handlePress}>Interesting! 🤩</div>
+                      )}
+
                       {setLikess(totalLikes)}
                     </>
                   )}
@@ -174,9 +192,7 @@ function AboutMeTab({ setOverlape }) {
               </Link>
               {/* <hr style={{color:"red" , height:"100px"}}/> */}
             </LinksPicsDiv>
-          
           </div>
-         
         </InstagramAccountDiv>
       </BehindTabDiv>
     </Provider>
@@ -184,4 +200,3 @@ function AboutMeTab({ setOverlape }) {
 }
 
 export default AboutMeTab;
-

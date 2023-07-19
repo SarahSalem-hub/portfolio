@@ -17,7 +17,7 @@ export const BehindTabDiv = styled.div`
   background-color: #ef787d;
   opacity: 1;
   /* filter: drop-shadow(0px 0px 26px rgb(0 0 0 / 0.4)); */
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 600px) {
     border-radius: 0 0 25px 25px;
 }
 `;
@@ -74,18 +74,34 @@ export const AccountIcons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  /* gap: 15px; */
   /* background-color: red; */
-  padding-inline: 7px;
+  /* padding-inline: 7px; */
   
   svg {
     color: #3a4156;
-    stroke-width: 1;
+    /* stroke-width: 0.5; */
 
-    &:nth-of-type(1){
+    /* &:nth-of-type(1){
       width: 30px;
+    } */
+    
+    &:hover {
+      background-color: #3a4156;
     }
+
+    
   }
+  img {
+    width: 55px;
+    height: 55px;
+  }
+  @media screen and (max-width: 700px) {
+    img {
+    width: 40px;
+    height: 40px;
+  }
+    }
 
 `
 

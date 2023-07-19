@@ -49,7 +49,7 @@ export const SkillsDiv = styled.div`
     linear-gradient(90deg, #f6b233 2px, #f7f0e6 2px) -1px 0;
   background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 600px) {
     border-radius: 0 0 25px 25px;
 }
 `;
@@ -227,6 +227,8 @@ export const Tabs = styled.div`
   width: 80%;
   display: flex;
   flex-direction: row;
+  font-size: calc(11px + 0.6vw);
+  color: #383f54;
   /* justify-content: start;
   align-items: start; */
   /* @media only screen and (max-width: 600px){
@@ -258,7 +260,7 @@ export const FrontTab = styled.div`
   border-radius: 25px 25px 0 0;
   border-bottom: none;
 
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     
       width: 100px;
      div{ 
@@ -279,7 +281,7 @@ export const FrontTab = styled.div`
   svg {
     width: 18px;
   }
-}
+} */
 `;
 export const FrontTabHeaderLayout = styled.div`
   position: absolute;
@@ -331,7 +333,7 @@ export const BehindTabHeaderLayout = styled.div`
   background-color: #ef787d;
   border-radius: 20px 20px 0 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   opacity: 1;
 
@@ -339,9 +341,9 @@ export const BehindTabHeaderLayout = styled.div`
     cursor: pointer;
   }
 
-  & div:nth-of-type() {
+  /* & div:nth-of-type() {
     font-size: 18px;
-  }
+  } */
 `;
 
 export const TabClosing = styled.div`
@@ -362,7 +364,7 @@ export const BehindTab = styled.div`
   border-radius: 25px 25px 0 0;
   border-bottom: none;
 
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     
     width: 130px;
    div:first-of-type{ 
@@ -383,7 +385,7 @@ export const BehindTab = styled.div`
   svg {
     width: 18px;
   }
-}
+} */
 `;
 export const FrontTabLayout = styled.div`
   width: 95%;
@@ -421,7 +423,7 @@ export const ContactTab = styled.div`
   border-bottom: none;
   cursor: pointer;
   
-  @media screen and (max-width: 1200px) {
+  /* @media screen and (max-width: 1200px) {
     
     width: 130px;
    div:first-child{ 
@@ -443,7 +445,7 @@ export const ContactTab = styled.div`
   svg {
     width: 18px;
   }
-}
+} */
 `
 export const ContactTabHeaderLayout = styled.div`
   position: absolute;

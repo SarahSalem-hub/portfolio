@@ -13,7 +13,7 @@ export const ContactDiv = styled.div`
   border-radius: 0 25px 25px 25px;
   background-color: antiquewhite;
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 600px) {
     border-radius: 0 0 25px 25px;
 }
 `;

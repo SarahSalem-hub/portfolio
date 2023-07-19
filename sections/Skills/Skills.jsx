@@ -56,9 +56,9 @@ function Skills({likes}) {
             }
             overlap={overlape.BehindTab}
           >
-            <Title font="20px">About ME</Title>
+            <Title >About ME</Title>
             <TabClosing>
-              <IoClose className="Icon" size={33} />
+              <IoClose className="Icon" size={20} />
             </TabClosing>
           </BehindTabHeaderLayout>
         </BehindTab>
@@ -69,9 +69,9 @@ function Skills({likes}) {
             }
             overlap={overlape.frontTab}
           >
-            <Title font="25px">Skills</Title>
+            <Title >Skills</Title>
             <TabClosing>
-              <IoClose className="Icon" size={33} />
+              <IoClose className="Icon" size={20} />
             </TabClosing>
           </FrontTabHeaderLayout>
         </FrontTab>
@@ -82,7 +82,7 @@ function Skills({likes}) {
             }
             overlap={overlape.contactTab}
           >
-            <Title font="17px">Contact Me</Title>
+            <Title >Contact Me</Title>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>

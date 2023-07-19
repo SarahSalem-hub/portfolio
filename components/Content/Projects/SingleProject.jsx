@@ -59,7 +59,8 @@ function SingleProjectComp({ id,name, image, description, github }) {
         <LinksDiv>
           <div>
             <Link href={github ? github : "#"} target="_blank">
-              <AiFillGithub className="Icon" size={40} />
+              {/* <AiFillGithub className="Icon" size={40} /> */}
+              {github ?  <AiFillGithub className="Icon" size={40} /> : null}
             </Link>
           </div>
         </LinksDiv>

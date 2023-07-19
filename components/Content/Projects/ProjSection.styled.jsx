@@ -121,7 +121,7 @@ export const ProDetails = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: ${(props) => (props.font ? props.font : "20px")};
+  /* font-size: ${(props) => (props.font ? props.font : "20px")}; */
   color: #383f54;
   margin-left: ${(props) => (props.margin ? "0px" : "10px")};
   display: flex;
