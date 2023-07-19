@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   BehindTab,
   BehindTabHeaderLayout,
@@ -43,6 +43,10 @@ function Skills({likes}) {
   });
   const {tabs,setActiveTab} = useContext(UserContext)
 
+  useEffect(() => {
+    setActiveTab("aboutMe")
+  }, [])
+  
 
   // console.log("overlap", overlape);
   return (
