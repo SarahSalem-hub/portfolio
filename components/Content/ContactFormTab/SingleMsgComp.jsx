@@ -9,13 +9,12 @@ const SingleMsgComp = ({ type, msg, first }) => {
   const SarahColor = "#90324f";
   const YouColor = "#5b8090";
   //const YouColor =  "#365554";
-
   const sarah = "Sarah: ";
   const you = "You: ";
 
   const messagesEndRef = useRef(null)
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollToBottom
+    messagesEndRef.current?.scrollIntoView({behavior: "smooth",block:"nearest"})
   }
 
   useEffect(() => {
@@ -35,13 +34,14 @@ const SingleMsgComp = ({ type, msg, first }) => {
   return (
     <div>
       {show === true ? (
-        <SingleMsgDiv ref={messagesEndRef}>
+        <SingleMsgDiv >
           <DialogName color={type === "sarah" ? SarahColor : YouColor}>
             {type === "sarah" ? sarah : you}{" "}
           </DialogName>
           <ReceiverMsg>{Object.values(msg)}</ReceiverMsg>
         </SingleMsgDiv>
       ) : null}
+      <div ref={messagesEndRef}></div>
     </div>
   );
 };

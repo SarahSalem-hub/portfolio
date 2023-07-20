@@ -1,4 +1,6 @@
+import { Fredoka } from "@/components/fonts";
 import styled from "@emotion/styled";
+
 
 export const ContactDiv = styled.div`
   padding: 25px 0 25px 0;
@@ -122,7 +124,7 @@ export const ChatBoxPic = styled.img`
 
 export const SingleMsgDiv = styled.div`
   display: flex;
-  
+  margin-block: 4px;
   
 `;
 
@@ -146,10 +148,14 @@ export const DialogName = styled.div`
 `;
 
 export const ReceiverMsg = styled.div`
-  color: #28050a;
+  color: #3f3e3e;
   font-size: inherit;
    white-space: pre-line;
+   line-height: normal;
    /* word-break: break-all;  */
+   /* line-height: 25px; */
+   /* -webkit-text-stroke: 1px #140909; */
+
 
 
    @keyframes show {
@@ -193,6 +199,7 @@ export const SendMsg = styled.textarea`
 
   ::placeholder{
     color: #2c353f;
+    font-family: ${Fredoka.style.fontFamily};
   }
 
   @media screen and (max-width: 600px){
