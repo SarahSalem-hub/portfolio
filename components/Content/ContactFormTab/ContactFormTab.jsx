@@ -99,6 +99,7 @@ const ContactFormTab = () => {
               onKeyDown={(e) => placeHolderTurner(e)}
               placeholder={Object.values(placeHolder)}
               readOnly={readOnly}
+              onFocus={(e)=>e.target.blur}
             />
             <SendButton onClick={submitToEmail} readOnly={readOnly}>Submit</SendButton>
           </SendMsgBox>
