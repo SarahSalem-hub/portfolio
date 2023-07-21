@@ -7,7 +7,7 @@ export const ExternalIntroDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  height: 100vh;  
+  height:100vh;  
   margin-bottom: 100px;
   @media only screen and (max-width: 1024px) {
     height: 100%;
@@ -122,3 +122,21 @@ export const StyledAnimatedImage = styled(AnimatedImage)`
   z-index: 2;
   transform: rotate(-62deg);
 `;
+export const IntroEmoji = styled.div`
+  /* background-color: red; */
+  /* width: auto; */
+  display: inline;
+  font-size: calc(16px + 0.4vw);
+`
+
+export const DecoratedText =  styled.p`
+  display: inline;
+   /* font-size: calc(16px + 0.3vw);  */
+ color : ${props => props.color}; 
+  /* text-decoration: wavy;  */
+  /* -webkit-text-decoration: underline wavy #22a4be; */
+  /* text-decoration: underline wavy #383f54;
+  text-underline-offset: 4px; */
+  /* padding-bottom: 10px;
+  border-bottom: 1px solid #000; */
+`

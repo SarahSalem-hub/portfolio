@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {
+  DecoratedText,
   DetailsInnerDiv,
   DetailsOuterDiv,
   ExternalIntroDiv,
@@ -8,6 +9,7 @@ import {
   IntroDescription,
   IntroDetailsBox,
   IntroDiv,
+  IntroEmoji,
   IntroPic,
   NameDiv,
   Nameh1,
@@ -48,7 +50,7 @@ const IntroSection = () => {
               />
             </div>
 
-            <IntroDescription font="calc(9px + 0.01vw)" >
+            <IntroDescription font="calc(9px + 0.01vw)" lineHeight={true}>
               A Junior Front-End Web Developer
             </IntroDescription>
 
@@ -58,17 +60,21 @@ const IntroSection = () => {
               letterSpacing={true}
               lineHeight={true}
             >
-              I&apos;m a graduate from the front-end bootcamp at{" "}
+              A<DecoratedText color="#ce7e31"> Software Engineer</DecoratedText>{" "}
+              and a recent <IntroEmoji>👩🏻‍🎓</IntroEmoji> from the frontend
+              bootcamp at{" "}
               <a
                 href="https://www.re-coded.com/"
                 target="_blank"
                 style={{ color: "#fb5456" }}
               >
-                Recoded{" "}
-              </a>
+                <DecoratedText color="#fb5456" wavy="true">
+                  Recoded
+                </DecoratedText>
+              </a>{" "}
               in Yemen,this is my first portfolio that I&apos;ve made and
-              I&apos;m looking forward to enhance it and fill it with my future
-              projects.
+              I&apos;m looking forward to enhance it <IntroEmoji>🛠️</IntroEmoji>{" "}
+              and fill it with my future projects<IntroEmoji>✨</IntroEmoji>.
             </IntroDescription>
           </DetailsOuterDiv>
         </IntroDetailsBox>
