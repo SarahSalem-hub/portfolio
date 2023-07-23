@@ -34,6 +34,7 @@ import ContactFormTab from "../../components/Content/ContactFormTab/ContactFormT
 import SkillsTab from "../../components/Content/SkillsTab/SkillsTab";
 import AboutMeTab from "../../components/Content/AboutMeTab/AboutMeTab";
 import { UserContext } from "@/pages/_app";
+import { TabName } from "@/components/Content/Projects/SingleProject.styled";
 
 function Skills({likes}) {
   const [overlape, setOverlape] = useState({
@@ -61,7 +62,7 @@ function Skills({likes}) {
             }
             overlap={overlape.BehindTab}
           >
-            <Title >About ME</Title>
+            <TabName >About ME</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
@@ -77,7 +78,7 @@ function Skills({likes}) {
             }
             overlap={overlape.frontTab}
           >
-            <Title >Skills</Title>
+            <TabName >Skills</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
@@ -91,7 +92,7 @@ function Skills({likes}) {
             }
             overlap={overlape.contactTab}
           >
-            <Title >Contact Me</Title>
+            <TabName >Contact Me</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>

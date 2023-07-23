@@ -166,7 +166,7 @@ function AboutMeTab({ setOverlape }) {
                         <div onClick={handlePress}>Interesting! 🤩</div>
                       )}
 
-                      {setLikess(totalLikes)}
+                      {(()=>{setLikess(totalLikes)})()}
                     </>
                   )}
                 </LikeButton>

@@ -34,7 +34,7 @@ export const ProjsDiv = styled.div`
   /* margin : 0 100px 60px 100px; */
   gap: 30px 30px;
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 740px) {
     display: grid;
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr;
@@ -121,16 +121,18 @@ export const ProDetails = styled.div`
 `;
 
 export const Title = styled.div`
-  /* font-size: ${(props) => (props.font ? props.font : "20px")}; */
+  font-size: ${(props) => (props.font ? "calc(props.font + 0.4vw)" : "calc(13px + 0.5vw)")};
   color: #383f54;
   margin-left: ${(props) => (props.margin ? "0px" : "10px")};
   display: flex;
   align-items: center;
   font-family: ${Fredoka.style.fontFamily};
+  line-height: normal;
 `;
 export const ProWindowBar = styled.div`
   background-color: #ffc68f;
-  padding: 0 30px 0 30px;
+  /* padding: 0 0 0 20px; */
+  
   width: 100%;
   height: 70px;
   border-start-end-radius: 18px;
@@ -150,6 +152,8 @@ export const ProWindowBar = styled.div`
 export const ProBarName = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
+  left: 20px;
 `
 
 export const ProSectionHeader = styled.p`
@@ -185,13 +189,26 @@ export const LinksDiv = styled.div`
   /* flex flex-row justify-end */
   display: flex;
   /* flex-direction: row; */
-  justify-content: end;
+  justify-content: center;
   /* align-content: end; */
   /* align-content: end; */
   /* height: 100%; */
   height: 70px;
   width: 100%;
   /* background-color: yellow; */
+
+  & a{
+    height: auto;
+  }
+
+  & div:first-of-type{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: aliceblue; */
+  }
 `;
 
 export const UrlTitle = styled.div`

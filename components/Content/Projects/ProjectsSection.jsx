@@ -32,7 +32,17 @@ const ProjectsSection = ({ projects }) => {
   const [projectsCount, setProjectsCount] = useState(2);
   const scrollToRef = useRef();
   const { projectSection } = useContext(UserContext);
-
+  
+  const sortedProjects = projects?.sort((a,b)=>{
+    if(a.priority < b.priority){
+    return -1
+    }
+    else if (a.priority > b.priority){
+      return 1
+    }
+    else return 0
+  })
+  console.log(sortedProjects);
   return (
     <ProjectsSectionDiv ref={projectSection}>
       <FolderIconDiv>
@@ -42,11 +52,12 @@ const ProjectsSection = ({ projects }) => {
       </FolderIconDiv>
 
       <ProjsDiv ref={scrollToRef}>
-        {projects?.length === 0
+        {sortedProjects?.length === 0
           ? [...Array(projectsCount)].map((project) => {
-              return <SingleProjectComp key={project?.id}/>;
+            
+              return <SingleProjectComp key={project}/>;
             })
-          : projects?.map((project) => {
+          : sortedProjects?.map((project) => {
               return (
                 <SingleProjectComp
                  key={project.id}
@@ -55,6 +66,8 @@ const ProjectsSection = ({ projects }) => {
                   image={project.image}
                   description={project.description}
                   github={project.github}
+                  link={project.link}
+                  priority={project.priority}
                 />
               );
             })}

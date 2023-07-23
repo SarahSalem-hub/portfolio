@@ -71,6 +71,7 @@ export const Description = styled.div`
     word-wrap: break-word;
     font-size: 20px;
     font-weight: 300;
+    line-height: normal;
 `
 export const ProjSkillsDiv = styled.div`
     width: 90%;
@@ -93,3 +94,12 @@ export const SingleSkill = styled.div`
     padding-inline: 7px;
     filter: drop-shadow(5px 1px 4px #b6b5b5);
 `
+
+export const TabName = styled.div`
+  color: #383f54;
+  margin-left: ${(props) => (props.margin ? "0px" : "10px")};
+  display: flex;
+  align-items: center;
+  font-family: ${Fredoka.style.fontFamily};
+  line-height: normal;
+`;

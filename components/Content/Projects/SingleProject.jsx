@@ -12,24 +12,35 @@ import {
   ProjLoadingDiv,
   Title,
 } from "./ProjSection.styled";
-import { FaCode } from "react-icons/fa";
+import { FaCode, FaHotjar } from "react-icons/fa";
 import { FiMinus } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
 import { Fredoka } from "@/components/fonts";
+import { TbLink, TbLinkOff } from "react-icons/tb";
+import { EmojiSize } from "../AboutMeTab/AboutMeTab.styled";
+import { BiSolidHot } from "react-icons/bi"
 
+function SingleProjectComp({ id, name, image, description, github, link,priority }) {
 
-
-function SingleProjectComp({ id,name, image, description, github }) {
-  // console.log("name" , name);
-  
   return (
     <ProjContainer key={name ? name : "0"}>
       <ProWindowBar>
-        <ProBarName >
+        <ProBarName>
           <FaCode className="Icon" size={40} />
-          {name ? <Title>{name}</Title> : <Title>Project name</Title>}
+          {name ? (
+            <div className="flex justify-around">
+              
+              <Title>{name}</Title>
+              <EmojiSize >
+                {priority === "0" ?  <FaHotjar size={25} color="cb9940"/> : null }
+                
+              </EmojiSize>
+            </div>
+          ) : (
+            <Title>Project name</Title>
+          )}
         </ProBarName>
         <div className="flex flex-row">
           <FiMinus className="Icon" size={40} />
@@ -46,21 +57,31 @@ function SingleProjectComp({ id,name, image, description, github }) {
               ) : (
                 // <ProImg src="/assets/images/waiting-data.svg" alt="project" />
                 // <div style={{width:"400px",height:"231px",backgroundColor:"yellow"}}></div>
-                <ProjLoadingDiv/>
+                <ProjLoadingDiv />
               )}
             </ProjImageDiv>
             <ProDetails>
               <Title className={Fredoka.className} style={{ fontSize: "18px" }}>
-                {`${(description ? description : "Loading").substring(0, 120)} ...`}
+                {`${(description ? description : "Loading").substring(
+                  0,
+                  120
+                )} ...`}
               </Title>
             </ProDetails>
           </ImageAndDetails>
         </Link>
         <LinksDiv>
           <div>
+            <Link href={link ? link : "#"} target="_blank">
+              {link ? (
+                <TbLink className="Icon" size={20} />
+              ) : (
+                <TbLinkOff className="Icon" size={20} />
+              )}
+            </Link>
             <Link href={github ? github : "#"} target="_blank">
               {/* <AiFillGithub className="Icon" size={40} /> */}
-              {github ?  <AiFillGithub className="Icon" size={40} /> : null}
+              {github ? <AiFillGithub className="Icon" size={25} /> : null}
             </Link>
           </div>
         </LinksDiv>

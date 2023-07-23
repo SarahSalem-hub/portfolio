@@ -13,7 +13,7 @@ import React from "react";
 const SingleProject = ({project}) => {
   console.log("project",project);
   return (
-    <StyledContent>
+    <StyledContent setHeight={true}>
       {/* <div className="scroll"> */}
         <TransparentLayout>
           <ProjectContainer>

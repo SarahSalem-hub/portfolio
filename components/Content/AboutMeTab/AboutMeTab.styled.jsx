@@ -302,4 +302,5 @@ justify-content: center;
 align-items: center;
   font-size: ${props => props.size};
   /* background-color: red; */
+  padding-left: 10px;
 `

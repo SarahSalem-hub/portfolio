@@ -7,8 +7,8 @@ export const ExternalIntroDiv = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  height:100vh;  
-  margin-bottom: 100px;
+  height: 100vh;  
+  /* margin-bottom: 100px; */
   @media only screen and (max-width: 1024px) {
     height: 100%;
     padding-top: 152px;
@@ -84,7 +84,7 @@ export const Nameh1 = styled.h1`
   }
 `
 
-export const IntroDescription = styled.p`
+export const IntroDescription = styled.div`
   font-size: ${props => props.font};
   margin: ${props => props.makeMargin ? "40px 0 0 0": null} ;
   margin-bottom: 30px;
@@ -123,20 +123,12 @@ export const StyledAnimatedImage = styled(AnimatedImage)`
   transform: rotate(-62deg);
 `;
 export const IntroEmoji = styled.div`
-  /* background-color: red; */
-  /* width: auto; */
-  display: inline;
-  font-size: calc(16px + 0.4vw);
+  display: inline-block;
+  padding-inline: 5px;
+
 `
 
 export const DecoratedText =  styled.p`
   display: inline;
-   /* font-size: calc(16px + 0.3vw);  */
  color : ${props => props.color}; 
-  /* text-decoration: wavy;  */
-  /* -webkit-text-decoration: underline wavy #22a4be; */
-  /* text-decoration: underline wavy #383f54;
-  text-underline-offset: 4px; */
-  /* padding-bottom: 10px;
-  border-bottom: 1px solid #000; */
 `

@@ -9,6 +9,11 @@ import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 const Content = ({ projects,likes }) => {
+
+  useEffect(() => {
+   
+  }, [projects])
+  
   return (
     // <>
     <StyledContent>
