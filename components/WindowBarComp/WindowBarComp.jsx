@@ -38,13 +38,13 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
   function checkURLName() {
     if (typeof window !== "undefined") {
       if (
-        window.scrollY >= projectSectionY - 100 &&
+        window.scrollY >= projectSectionY - 150 &&
         window.scrollY <= projectSectionY + projectSectionHeight
       ) {
         setUrlName("SarahSalem.com/projects");
       }else if (
         window.scrollY >= tabsY - 300 &&
-        window.scrollY <= tabsY + tabsHeight
+        window.scrollY <= tabsY + tabsHeight - 50
       ) {
         setUrlName(`SarahSalem.com/${activeTab}`);
       }

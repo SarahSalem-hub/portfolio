@@ -1,99 +1,109 @@
-import { Fredoka } from "@/components/fonts";
+import { Fredoka, Syncopatee } from "@/components/fonts";
 import styled from "@emotion/styled";
 
 export const ProjectContainer = styled.div`
-    width: 100%;
-    /* height: 66vh; */
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  padding-top: 152px;
-  margin-bottom: 100px;
-  
+  align-items: center;
+  margin-top: 20px;
   /* background-color: red; */
-  /* @media only screen and (min-width: 1024px) {
-    height: 100vh;  
-  } */
-`
+  @media only screen and (max-width: 950px) {
+    margin-top: 130px;
+    height: 100%;
+    padding-bottom: 50px;
+  }
+`;
 export const ProjDiv = styled.div`
-    width: 80%;
-    height: 90%;
-    /* background-color: #6565be; */
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-    gap: 50px;
-
-    @media only screen and (max-width: 600px) {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  @media only screen and (max-width: 950px) {
     flex-direction: column;
   }
-`
+`;
 export const ProjDetails = styled.div`
-    width: 100%;
-    height: 100%;
-    max-width: 500px;
-    /* background-color: #9fd0d0; */
-    display: flex;
-    flex: 2;
-    justify-content: start;
-    flex-direction: column;
-
-`
+  width: 100%;
+  max-width: 500px;
+  /* background-color: #9fd0d0; */
+  display: flex;
+  flex: 2;
+  justify-content: start;
+  flex-direction: column;
+  animation: 1s ease-out 0s 1 slideInLeft;
+  text-shadow: 4px 5px 6px rgb(0 0 0 / 20%);
+  @keyframes slideInLeft {
+    0% {
+      transform: translateX(-90%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+`;
 export const ProjPic = styled.div`
-    width: 100%;
-    flex: 3;
-    display: flex;
-    align-items: center;
-    /* background-color: #77f25f; */
+  width: 100%;
+  flex: 2;
+  display: flex;
+  align-items: center;
+  /* background-color: #77f25f; */
 
-`
+  animation: 1s ease-out 0s 1 slideInright;
+  @keyframes slideInright {
+    0% {
+      transform: translateX(90%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+`;
 export const SingleProPic = styled.img`
-    width: 100%;
-        /* max-width: 100%; */
-        border-radius: 25px;
-        filter: drop-shadow(12px 10px 4px #b6b5b5);
-`
+  width: 100%;
+  border-radius: 25px;
+  filter: drop-shadow(12px 10px 4px #b6b5b5);
+`;
 export const Name = styled.h1`
-    font-size: 30px;
-    color: black;
-    font-family: ${Fredoka.style.fontFamily};
-  /* color: var(--primaryGrey) */
-    
-`
+  font-size: 30px;
+  color: #c6324dfc;
+  font-family: ${Syncopatee.style.fontFamily};
+  font-weight: 700;
+`;
 export const Details = styled.div`
-    width: 100%;
-    padding: 0px 20px 20px 5px;
-    display: flex;
-    justify-content: space-between;
-`
+  width: 100%;
+  padding: 0px 20px 20px 5px;
+  display: flex;
+  justify-content: space-between;
+`;
 export const Description = styled.div`
-    width: 100%;
-    padding: 4px;
-    word-wrap: break-word;
-    font-size: 20px;
-    font-weight: 300;
-    line-height: normal;
-`
+  width: 100%;
+  padding: 4px;
+  word-wrap: break-word;
+  font-size: calc(15px + 0.3vw);
+  font-family: "Tomorrow", sans-serif;
+  color: #3a4156d1;
+  line-height: 1.75;
+`;
 export const ProjSkillsDiv = styled.div`
-    width: 90%;
-    margin-top: 10px;
-    /* word-wrap: break-word; */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    /* background-color: #9e733a; */
-    
-`
+  width: 90%;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* background-color: #9e733a; */
+`;
 export const SingleSkill = styled.div`
-    
-    background-color:  #3a4156;
-    border-radius: 7px;
-    color: white;
-    width: fit-content;
-    
-    padding: 5px 0 5px 0;
-    padding-inline: 7px;
-    filter: drop-shadow(5px 1px 4px #b6b5b5);
-`
+  background-color: #3a4156;
+  border-radius: 7px;
+  color: white;
+  width: fit-content;
+  font-size: calc(12px + 0.2vw);
+  padding: 5px 0 5px 0;
+  padding-inline: 7px;
+  filter: drop-shadow(5px 1px 4px #b6b5b5);
+`;
 
 export const TabName = styled.div`
   color: #383f54;

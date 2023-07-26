@@ -20,10 +20,18 @@ import { AiFillGithub } from "react-icons/ai";
 import { Fredoka } from "@/components/fonts";
 import { TbLink, TbLinkOff } from "react-icons/tb";
 import { EmojiSize } from "../AboutMeTab/AboutMeTab.styled";
-import { BiSolidHot } from "react-icons/bi"
+import { BiSolidHot } from "react-icons/bi";
+import { Box, Skeleton } from "@mui/material";
 
-function SingleProjectComp({ id, name, image, description, github, link,priority }) {
-
+function SingleProjectComp({
+  id,
+  name,
+  image,
+  description,
+  github,
+  link,
+  priority,
+}) {
   return (
     <ProjContainer key={name ? name : "0"}>
       <ProWindowBar>
@@ -31,15 +39,15 @@ function SingleProjectComp({ id, name, image, description, github, link,priority
           <FaCode className="Icon" size={40} />
           {name ? (
             <div className="flex justify-around">
-              
               <Title>{name}</Title>
-              <EmojiSize >
-                {priority === "0" ?  <FaHotjar size={25} color="cb9940"/> : null }
-                
+              <EmojiSize>
+                {priority === "0" ? (
+                  <FaHotjar size={25} color="cb9940" />
+                ) : null}
               </EmojiSize>
             </div>
           ) : (
-            <Title>Project name</Title>
+            <Skeleton variant="text" sx={{ width: "150px" }} />
           )}
         </ProBarName>
         <div className="flex flex-row">
@@ -55,17 +63,17 @@ function SingleProjectComp({ id, name, image, description, github, link,priority
               {image ? (
                 <ProImg src={image} alt="project" />
               ) : (
-                // <ProImg src="/assets/images/waiting-data.svg" alt="project" />
-                // <div style={{width:"400px",height:"231px",backgroundColor:"yellow"}}></div>
-                <ProjLoadingDiv />
+                <Box sx={{ pt: 0.5 }} className=" flex justify-center flex-col w-full">
+                   <Skeleton variant="rectangular" width="100%" height="231px" />
+                  <Skeleton width="100%"/>
+                  <Skeleton width="60%" />
+                </Box>
               )}
             </ProjImageDiv>
             <ProDetails>
               <Title className={Fredoka.className} style={{ fontSize: "18px" }}>
-                {`${(description ? description : "Loading").substring(
-                  0,
-                  120
-                )} ...`}
+                {description ? `${description.substring(0, 120)} ...`:
+                 <Skeleton width="60%" />}
               </Title>
             </ProDetails>
           </ImageAndDetails>

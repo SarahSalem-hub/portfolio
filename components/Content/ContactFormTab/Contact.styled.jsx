@@ -224,7 +224,7 @@ export const SendButton = styled.button`
     width: 90px;
     height: 38px;
     border-radius: 16px;
-    opacity: ${props => props.readOnly ? "1" : "0"};
+    /* opacity: ${props => props.readOnly ? "1" : "0"}; */
 
    
 `

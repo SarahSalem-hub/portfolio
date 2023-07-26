@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StyledContent = styled.div`
-  height: ${props => props.setHeight ? "100vh" :null};
+  /* height: ${props => props.setHeight ? "100vh" :null}; */
   background-color: antiquewhite;
   border-left: 6px solid var(--primaryGrey);
   border-right: 6px solid var(--primaryGrey);

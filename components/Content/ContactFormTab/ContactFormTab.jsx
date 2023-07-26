@@ -17,6 +17,7 @@ import {
 import { Fredoka } from "@/components/fonts";
 import ChatBoxComp from "./ChatBoxComp";
 import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 const ContactFormTab = () => {
   const placeHolderArray = [
@@ -72,17 +73,52 @@ const ContactFormTab = () => {
       .then(
         (result) => {
           console.log(result.text);
+
+          Swal.fire({
+            width: 340,
+            background: " url(/assets/images/Interested.gif)",
+            imageAlt: "Custom image",
+            color: "black",
+            html: `
+              <div class="customSweetAlert">
+              <div class="sweeAlertHeading">oh yaa!</div>
+              <div>Thank you for your beautiful message, for sure I\'ll read it and reply to you!</div>
+              </div>
+            `,
+            willClose: () => {
+              setUserMsgInfo({
+                name: "",
+                email: "",
+                msg: "",
+              });
+              setReadOnly(false);
+              setTurn(0);
+              setPlaceHolder(placeHolderArray[0]);
+            },
+          });
         },
         (error) => {
-          console.log(error.text);
+          // console.log(error.text);
+          Swal.fire({
+            width: 340,
+            background: "url(/assets/images/waiting.gif)",
+            imageAlt: "Custom image",
+            color: "black",
+            html: `
+              <div class="customSweetAlert">
+              <div class="sweeAlertHeading">oh noo!</div>
+              <div>Don't worry!\n that may happened because of interent issue,try again and defeinitly it will work</div>
+              </div>
+            `,
+          });
         }
       );
   }
 
-  console.log("user info", UserMsgInfo);
-  console.log("placeholder", placeHolder);
+  console.log("readonly", readOnly);
+  console.log("turn", turn);
   return (
-    <ContactDiv className={Fredoka.className} >
+    <ContactDiv className={Fredoka.className}>
       <ChatBox>
         <ChatBoxComp UserMsgInfo={UserMsgInfo} />
 
@@ -99,9 +135,11 @@ const ContactFormTab = () => {
               onKeyDown={(e) => placeHolderTurner(e)}
               placeholder={Object.values(placeHolder)}
               readOnly={readOnly}
-              onFocus={(e)=>e.target.blur}
+              onFocus={(e) => e.target.blur}
             />
-            <SendButton onClick={submitToEmail} readOnly={readOnly}>Submit</SendButton>
+            {readOnly ? (
+              <SendButton onClick={submitToEmail}>Submit</SendButton>
+            ) : null}
           </SendMsgBox>
         </SenderBox>
       </ChatBox>

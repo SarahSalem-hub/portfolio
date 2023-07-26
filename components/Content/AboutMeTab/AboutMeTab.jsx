@@ -43,46 +43,47 @@ import { GoLightBulb } from "react-icons/gi";
 import { FaLightbulb } from "react-icons/fa";
 import { Image, Popup } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import { trackPromise, usePromiseTracker } from "react-promise-tracker";
 
 let linkedInLink = "https://www.linkedin.com/in/sarah-al-dhaferi-980270277/";
 let githubLink = "https://github.com/SarahSalem-hub";
 
 function AboutMeTab({ setOverlape }) {
+  const [heartClicked, setHeartClicked] = useState(0);
   const [fillHeart, setFillHeart] = useState(false);
-  const [buttonColor, setButtonColor] = useState(false);
-  const [hitInterestingBut, setHitInterestingBut] = useState(false);
-  const [likess, setLikess] = useState();
+  const { promiseInProgress } = usePromiseTracker();
+  console.log("promiseInProgress", promiseInProgress);
 
-  function fillHeartFun() {
-    setHitInterestingBut(true);
+  function interestingButton() {
+    // setButtonColor((prev) => !prev);
 
+  
     if (fillHeart) {
       localStorage.setItem("heartChecker", JSON.stringify(false));
+      updateLikes(heartClicked, "-");
+      trackPromise(LikesFetching());
     } else {
       localStorage.setItem("heartChecker", JSON.stringify(true));
+      updateLikes(heartClicked, "+");
+      trackPromise(LikesFetching());
     }
   }
 
-  function returnCirularComp() {
-    return <CircularProgress style={{ padding: "10px" }} color="inherit" />;
+  async function LikesFetching() {
+    await fetchLikes().then((data) => setHeartClicked(data[0]?.count));
   }
 
   useEffect(() => {
     const getHeartChecker = JSON.parse(localStorage.getItem("heartChecker"));
+    trackPromise(LikesFetching());
     setFillHeart(getHeartChecker);
-    setButtonColor(getHeartChecker);
-  }, [likess]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setHitInterestingBut(false), 1000);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [hitInterestingBut]);
+    // setButtonColor(getHeartChecker);
+    // LikeAPI();
+  }, [heartClicked]);
 
   return (
     <Provider apiKey="pt_b7bab4420735512aad14ebb2e3af3d">
-      <BehindTabDiv >
+      <BehindTabDiv>
         <InstagramAccountDiv>
           <div>
             <AccountHeader>
@@ -92,9 +93,10 @@ function AboutMeTab({ setOverlape }) {
                 <IoIosArrowDown />
               </AccountName>
               <AccountIcons>
-                
                 <Popup
-                  content={'Welcome! \nthis is my simple portfolio website, I hope you ❤️ it ! \n \nI truly would want to see your review by clicking the "interesting" button down there ↙️ '}
+                  content={
+                    'Welcome! \nthis is my simple portfolio website, I hope you ❤️ it ! \n \nI truly would want to see your review by clicking the "interesting" button down there ↙️ '
+                  }
                   key="0"
                   header="Hello there!"
                   trigger={
@@ -108,7 +110,6 @@ function AboutMeTab({ setOverlape }) {
                     whiteSpace: "pre-wrap",
                   }}
                 />
-                
               </AccountIcons>
             </AccountHeader>
             <ProfileInfo>
@@ -117,14 +118,25 @@ function AboutMeTab({ setOverlape }) {
               </ProfilePicDiv>
               <ProfileStatistics>
                 <SingleStatistic>
-                  <div>{hitInterestingBut ? returnCirularComp() : likess}</div>
                   <div>
+                    {!promiseInProgress ? (
+                      heartClicked
+                    ) : (
+                      <CircularProgress
+                        style={{ padding: "10px" }}
+                        color="inherit"
+                      />
+                    )}
+                  </div>
+                  <div>
+                    {/* Love */}
                     {fillHeart ? (
                       <AiFillHeart size={20} />
                     ) : (
                       <AiOutlineHeart size={20} />
                     )}
                   </div>
+                  {/* </div> */}
                 </SingleStatistic>
                 <SingleStatistic>
                   <EmojiSize size="25px">👼</EmojiSize>
@@ -145,31 +157,13 @@ function AboutMeTab({ setOverlape }) {
             </BioDiv>
             <ButtonsDiv>
               <ProfileButton
-                buttonColor={buttonColor}
-                onClick={fillHeartFun}
-                disabled={hitInterestingBut}
+                buttonColor={fillHeart}
+                disabled={promiseInProgress}
+                onClick={() => {
+                  interestingButton();
+                }}
               >
-                <LikeButton
-                  id="do-you-like-my-profile"
-                  namespace="aboutMeTab"
-                  hideCounterIfLessThan={0}
-                  disabled={hitInterestingBut}
-                >
-                  {({ handlePress, totalLikes }) => (
-                    <>
-                      {hitInterestingBut ? (
-                        <CircularProgress
-                          style={{ padding: "10px" }}
-                          color="inherit"
-                        />
-                      ) : (
-                        <div onClick={handlePress}>Interesting! 🤩</div>
-                      )}
-
-                      {(()=>{setLikess(totalLikes)})()}
-                    </>
-                  )}
-                </LikeButton>
+                Interesting! 🤩
               </ProfileButton>
               <ProfileButton
                 onClick={() =>
@@ -190,7 +184,6 @@ function AboutMeTab({ setOverlape }) {
                   <img src="/assets/images/github.svg" alt="github" />
                 </LinkPic>
               </Link>
-              {/* <hr style={{color:"red" , height:"100px"}}/> */}
             </LinksPicsDiv>
           </div>
         </InstagramAccountDiv>

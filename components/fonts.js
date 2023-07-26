@@ -1,4 +1,4 @@
-import { Mynerve, Sacramento } from "next/font/google";
+import { Annie_Use_Your_Telescope, Mynerve, Nerko_One, Sacramento, Syncopate } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
 import { Fredoka_One } from "next/font/google";
 
@@ -22,3 +22,17 @@ export const mynerve = Mynerve({
     subsets: ["latin"],
     weight: "400",
   })
+
+  export const AnnieUseYourTelescope = Annie_Use_Your_Telescope({
+    subsets: ["latin"],
+    weight: "400",
+  })
+
+
+  export const Syncopatee = Syncopate({
+    subsets: ["latin"],
+    weight: ["400","700"],
+  })
+
+
+ 
