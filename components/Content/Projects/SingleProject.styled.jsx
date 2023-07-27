@@ -32,16 +32,8 @@ export const ProjDetails = styled.div`
   flex: 2;
   justify-content: start;
   flex-direction: column;
-  animation: 1s ease-out 0s 1 slideInLeft;
+
   text-shadow: 4px 5px 6px rgb(0 0 0 / 20%);
-  @keyframes slideInLeft {
-    0% {
-      transform: translateX(-90%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
 `;
 export const ProjPic = styled.div`
   width: 100%;
@@ -49,16 +41,6 @@ export const ProjPic = styled.div`
   display: flex;
   align-items: center;
   /* background-color: #77f25f; */
-
-  animation: 1s ease-out 0s 1 slideInright;
-  @keyframes slideInright {
-    0% {
-      transform: translateX(90%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
 `;
 export const SingleProPic = styled.img`
   width: 100%;
