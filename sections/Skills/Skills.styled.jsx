@@ -458,6 +458,6 @@ export const ContactTabHeaderLayout = styled.div`
   border-radius: 21px 21px 0 0;
   background-color: antiquewhite;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 `

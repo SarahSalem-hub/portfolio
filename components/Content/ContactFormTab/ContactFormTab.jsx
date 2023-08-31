@@ -105,7 +105,7 @@ const ContactFormTab = () => {
             html: `
               <div class="customSweetAlert">
               <div class="sweeAlertHeading">oh noo!</div>
-              <div>Don't worry!\n that may happened because of interent issue,try again and defeinitly it will work</div>
+              <div>Don't worry!\n that may happened because of interent issue,try again and definitely it will work this time</div>
               </div>
             `,
           });

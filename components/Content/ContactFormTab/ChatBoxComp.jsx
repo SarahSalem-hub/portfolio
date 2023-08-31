@@ -25,7 +25,7 @@ function ChatBoxComp({ UserMsgInfo }) {
           <>
             <SingleMsgComp
               type="sarah"
-              msg={`Nice to meet you, ${UserMsgInfo.name} ! \n what's your Email, please.`}
+              msg={`Nice to meet you, ${UserMsgInfo.name} ! \n what's your Email, please?`}
             />
             <SingleMsgComp type="you" msg={UserMsgInfo.email} />
           </>

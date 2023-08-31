@@ -152,8 +152,8 @@ function AboutMeTab({ setOverlape }) {
             </ProfileInfo>
             <BioDiv>
               <SingleBioInfo>Bug 👾 fighter ! </SingleBioInfo>
-              <SingleBioInfo>Money 🤑 Seeker !</SingleBioInfo>
               <SingleBioInfo>Life 💪😎 survival!</SingleBioInfo>
+              <SingleBioInfo>DM for Web Development 📥</SingleBioInfo>
             </BioDiv>
             <ButtonsDiv>
               <ProfileButton

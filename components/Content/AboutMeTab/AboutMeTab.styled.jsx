@@ -206,11 +206,12 @@ export const BioDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-inline: 15px;
-  padding: 20px;
+  padding-inline: 20px;
+  gap: 7px;
 
   @media screen and (max-width: 600px) {
        padding: 0 20px 20px 20px ;
+       gap: 0;
     }
   /* border : 2px solid black; */
  
