@@ -33,6 +33,7 @@ export const ProjsDiv = styled.div`
   place-items: center;
   /* margin : 0 100px 60px 100px; */
   gap: 30px 30px;
+  padding-bottom: 80px;
 
   @media only screen and (max-width: 740px) {
     display: grid;
@@ -217,7 +218,9 @@ export const UrlTitle = styled.div`
   margin-left: ${(props) => (props.margin ? "0px" : "10px")};
   display:inline-block;
   font-family: ${Fredoka.style.fontFamily};
-  width: 150px;
+  width: 191px;
+  /* width: 150px ; */
+  white-space: nowrap;
   @media only screen and (max-width: 600px) {
     text-align: left;
   direction: rtl;

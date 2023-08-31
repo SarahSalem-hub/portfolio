@@ -39,8 +39,7 @@ const ContactFormTab = () => {
   function placeHolderTurner(e) {
     if (e.key == "Enter") {
       e.preventDefault();
-      // console.log("enter");
-      console.log("turn", turn + 1, placeHolderArray.length);
+     
       if (turn < placeHolderArray.length) {
         let pHkey = Object.keys(placeHolder);
         if (turn === 2) {
@@ -49,7 +48,7 @@ const ContactFormTab = () => {
         } else {
           setPlaceHolder(placeHolderArray.at(turn + 1));
         }
-        console.log("pHkey", pHkey);
+
         setUserMsgInfo({ ...UserMsgInfo, [pHkey]: e.target.value });
 
         // e.target.value = "";
@@ -72,7 +71,6 @@ const ContactFormTab = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
 
           Swal.fire({
             width: 340,
@@ -98,7 +96,7 @@ const ContactFormTab = () => {
           });
         },
         (error) => {
-          // console.log(error.text);
+         
           Swal.fire({
             width: 340,
             background: "url(/assets/images/waiting.gif)",
@@ -115,8 +113,7 @@ const ContactFormTab = () => {
       );
   }
 
-  console.log("readonly", readOnly);
-  console.log("turn", turn);
+ 
   return (
     <ContactDiv className={Fredoka.className}>
       <ChatBox>

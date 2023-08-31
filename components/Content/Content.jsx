@@ -7,6 +7,7 @@ import { ExternalIntroDiv } from "./Introduction/IntroSection.styled";
 import Skills from "../../sections/Skills/Skills";
 import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import ToBeContinued from "./ToBeContinued/ToBeContinued";
 
 const Content = ({ projects,likes }) => {
 
@@ -22,6 +23,7 @@ const Content = ({ projects,likes }) => {
         <Skills likes= {likes}/>
         <ProjectsSection  projects={projects} />
       </TransparentLayout>
+        <ToBeContinued />
     </StyledContent>
     // </>
   );

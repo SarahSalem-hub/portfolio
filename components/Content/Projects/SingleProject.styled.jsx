@@ -41,11 +41,18 @@ export const ProjPic = styled.div`
   display: flex;
   align-items: center;
   /* background-color: #77f25f; */
+
+  
 `;
 export const SingleProPic = styled.img`
   width: 100%;
   border-radius: 25px;
   filter: drop-shadow(12px 10px 4px #b6b5b5);
+  &:hover{
+    
+    cursor: pointer;
+    
+  }
 `;
 export const Name = styled.h1`
   font-size: 30px;

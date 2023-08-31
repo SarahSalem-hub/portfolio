@@ -42,7 +42,7 @@ const ProjectsSection = ({ projects }) => {
     }
     else return 0
   })
-  console.log(sortedProjects);
+   
   return (
     <ProjectsSectionDiv ref={projectSection}>
       <FolderIconDiv>

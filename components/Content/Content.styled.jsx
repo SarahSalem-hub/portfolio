@@ -9,14 +9,17 @@ export const StyledContent = styled.div`
   border-top-right-radius: 2%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const TransparentLayout = styled.div`
 width: 100%;
 display: flex;
-/* justify-content: center;
-align-content: center; */
 flex-direction: column;
+justify-content: center;
+align-items: center;
+
 max-width: 1500px;
 height: 100%;
 /* background-color: green; */

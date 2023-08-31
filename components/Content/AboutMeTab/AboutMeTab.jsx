@@ -52,7 +52,7 @@ function AboutMeTab({ setOverlape }) {
   const [heartClicked, setHeartClicked] = useState(0);
   const [fillHeart, setFillHeart] = useState(false);
   const { promiseInProgress } = usePromiseTracker();
-  console.log("promiseInProgress", promiseInProgress);
+
 
   function interestingButton() {
     // setButtonColor((prev) => !prev);

@@ -45,11 +45,11 @@ function Skills({likes}) {
   const {tabs,setActiveTab} = useContext(UserContext)
 
   useEffect(() => {
-    setActiveTab("aboutMe")
+    setActiveTab("about-me")
   }, [])
   
 
-  // console.log("overlap", overlape);
+ 
   return (
     <SkillsSection ref={tabs}>
       <Tabs>
@@ -58,11 +58,11 @@ function Skills({likes}) {
           <BehindTabHeaderLayout
             onClick={() =>
               {setOverlape({ frontTab: 0, BehindTab: 1, contactTab: 0 });
-              setActiveTab("aboutMe")}
+              setActiveTab("about-me")}
             }
             overlap={overlape.BehindTab}
           >
-            <TabName >About ME</TabName>
+            <TabName >About Me</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
@@ -88,7 +88,7 @@ function Skills({likes}) {
           <ContactTabHeaderLayout
             onClick={() =>
              { setOverlape({ frontTab: 0, BehindTab: 0, contactTab: 1 });
-             setActiveTab("contactMe")}
+             setActiveTab("contact-me")}
             }
             overlap={overlape.contactTab}
           >

@@ -12,11 +12,7 @@ export default function App({ Component, pageProps }) {
   // const activeTab = useRef()
   const [activeTab, setActiveTab] = useState("aboutMe")
 
-  useEffect(() => {
-    
-    console.log("activeTab",activeTab);
-  }, [activeTab])
-  
+ 
   return (
     <>
       <UserContext.Provider value={{projectSection,tabs,setActiveTab,activeTab}}>

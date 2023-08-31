@@ -47,7 +47,7 @@ const IntroSection = () => {
             </div>
 
             <IntroDescription font="calc(9px + 0.01vw)" lineHeight={true}>
-              A Junior Front-End Web Developer
+              A Front-End Web Developer
             </IntroDescription>
 
             <IntroDescription
@@ -73,7 +73,7 @@ const IntroSection = () => {
                 style={{ color: "#fb5456" }}
               >
                 <DecoratedText color="#fb5456" >
-                  Recoded
+                  Re:coded
                 </DecoratedText>
               </a>{" "}
               in Yemen,this is my first portfolio that I&apos;ve made and
