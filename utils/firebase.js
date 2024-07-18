@@ -6,6 +6,7 @@ import {
   getFirestore,
   setDoc,
 } from "firebase/firestore";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBX-DGKR1oZJsBdwlaCqqyH1WbRRirblzQ",
@@ -17,6 +18,9 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+export const storage = getStorage(app);
+
+
 
 export const fetchProjects = async () => {
   const projectsColl = collection(db, "projects");
@@ -44,3 +48,27 @@ export const updateLikes = async (prevCount, operator) => {
   const result = eval(jsonObject.expression);
   setDoc(docRef, { count: result });
 };
+
+export const fetchFolders = async () => {
+  const foldersColl = collection(db, "folders");
+  const getFoldersDocs = await getDocs(foldersColl);
+  const folders = getFoldersDocs.docs.map((doc) => {
+    return { ...doc.data(), id: doc.id };
+  });
+  return folders;
+};
+
+
+export async function getFileIconUrl(imageRef){
+  const iconRef = ref(storage, imageRef);
+  let url = '';
+  url = await getDownloadURL(iconRef);
+  console.log("url",url)
+  return url 
+  // try {
+  //   url = await getDownloadURL(iconRef);
+  //   return url 
+  // } catch (error) {
+  //   console.error("Failed to fetch file image url ", error);
+  // }
+}

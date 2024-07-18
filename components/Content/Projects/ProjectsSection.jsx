@@ -48,7 +48,7 @@ const ProjectsSection = ({ projects }) => {
       <FolderIconDiv>
         <ProSectionHeader> My Projects </ProSectionHeader>
         <FcOpenedFolder size={100} />
-        <a href=""></a>
+        {/* <a href=""></a> */}
       </FolderIconDiv>
 
       <ProjsDiv ref={scrollToRef}>

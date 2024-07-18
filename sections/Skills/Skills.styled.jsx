@@ -13,6 +13,11 @@ export const SkillsSection = styled.div`
   margin: 200px 0 100px 0;
   /* position: relative; */
   filter: drop-shadow(0px 0px 26px rgb(0 0 0 / 0.4));
+
+  @media screen and (max-width: 600px) {
+   margin: 50px 0 100px 0;
+}
+
 `;
 
 export const SkillsDiv = styled.div`

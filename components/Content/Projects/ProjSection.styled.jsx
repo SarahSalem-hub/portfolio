@@ -161,10 +161,6 @@ export const ProSectionHeader = styled.p`
   font-size: 25px;
   color: #383f54;
   font-family: ${Fredoka.style.fontFamily};
-  // margin-left: 10px;
-  // padding: 60px;
-  // display: flex;
-  // justify-content: center;
   z-index: 1;
   position: absolute;
 `;
