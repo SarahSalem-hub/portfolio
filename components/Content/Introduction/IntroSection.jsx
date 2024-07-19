@@ -25,6 +25,7 @@ import { DataContext, useData } from "@/pages";
 import { useFoldersContentAndInfo } from "./data.js"
 import { filterFolders } from "./WindowLayout/helpers";
 import Image from "next/image";
+import Clock from "./ClockWidget/Clock";
 
 
 const windowLayoutData = [
@@ -154,7 +155,7 @@ const IntroSection = () => {
               /> */}
             </div>
 
-            <IntroDescription font="calc(8px + 0.01vw)" lineHeight={true}>
+            <IntroDescription font="calc(8px + 0.07vw)" lineHeight={true}>
               A Front-End Web Developer
             </IntroDescription>
 
@@ -228,7 +229,9 @@ const IntroSection = () => {
             windowsArray={windowsArray}
           />
         )}
+       
       </IntroDiv>
+      <Clock/>
     </ExternalIntroDiv>
   );
 };
