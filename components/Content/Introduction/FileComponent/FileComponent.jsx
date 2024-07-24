@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileContainer, FileImage, FileName } from './FileComponent.styled'
+import { FileContainer, FileImage, FileName, FileTypeIcon, ImageLayout } from './FileComponent.styled'
 import Image from 'next/image'
 import { getFileIconUrl } from '@/utils/firebase';
 
@@ -33,19 +33,46 @@ const FileComponent = ({files}) => {
   //   xhr.send();
   // }
   
- 
+ const filesTypes = [
+   {
+     id: 0,
+     name: "pdf",
+     icon: "/assets/images/logotype.svg",
+   },
+   {
+     id: 1,
+     name: "medium",
+     icon: "/assets/images/Medium-Logo-Black-RGB.svg",
+   },
+ ];
 
-
+ const getTypeIcon = (file)=>{
+  const firebaseType = filesTypes.find(type=> {
+    return type.name === file.type
+  })
+  return firebaseType.icon
+ }
   
+
   return (
     <>
     {files ? files.map((file)=>{
-
+     
       return (
         <FileContainer key={file.id} onClick={()=> console.log("content",file)}>
         <FileImage>
           {/* <a href={"#"} onClick={()=>sendRequest(file.url)}> */}
-            <Image id='iconImg' src={ file.fileIcon} alt='file icon' fill />
+          <ImageLayout>
+          <Image src={"/assets/images/document back side.svg"} alt="" width={100} height={100}/>
+          <Image src={"/assets/images/document front side.svg"} alt="" width={100} height={100}/>
+
+          <Image id='iconImg' src={ file.fileIcon} alt='file icon' fill/>
+          <FileTypeIcon>
+           
+            <Image src={getTypeIcon(file)} alt='file type'width={100} height={100}/>
+          </FileTypeIcon>
+          </ImageLayout>
+         
             {/* </a> */}
             {/* <Image src={"/assets/images/file-pdf-svgrepo-com.svg"} alt='file icon' fill />  */}
         </FileImage>
