@@ -59,7 +59,7 @@ export const ImageLayout = styled.div`
     /* width: 50px;
         height: 30px; */
     clip-path: polygon(0 0,74% 0,101% 20%,100% 20%,100% 100%,0 100%);
-    object-fit: cover;
+    /* object-fit: cover; */
     
     object-position: top;
     /* padding-inline: 1px;  */
