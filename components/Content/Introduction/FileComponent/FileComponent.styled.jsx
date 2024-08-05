@@ -58,11 +58,12 @@ export const ImageLayout = styled.div`
     z-index: 2;
     /* width: 50px;
         height: 30px; */
-    clip-path: polygon(0 0,74% 0,100% 21%,100% 20%,100% 100%,0 100%);
+    clip-path: polygon(0 0,74% 0,101% 20%,100% 20%,100% 100%,0 100%);
     object-fit: cover;
     
     object-position: top;
-    padding-inline: 1px;
+    /* padding-inline: 1px;  */
+    border: 0.2px solid #7f7f7f82;
   }
 `;
 
