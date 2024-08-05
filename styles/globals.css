@@ -4,6 +4,8 @@
 /* cherypink :#dd6969; */
 :root {
   --primaryGrey: #3a4156;
+  --secondaryRosyPink  : #ef787d;
+  --secondaryPeachOrange: #ffc68f;
 }
 
 .Icon {

@@ -61,15 +61,15 @@ const WindowLayout = ({
       <FolderSidebar>
         <SmallWinBar>
           <CircleDiv
-            backgroundColor="red"
+            backgroundColor="var(--primaryGrey)"
             onClick={() => setOpenedWindow(false)}
           >
             <div>
-              <IoClose />
+              <IoClose color="#FFF8D1" size={12}/>
             </div>
           </CircleDiv>
-          <CircleDiv backgroundColor="yellow"> </CircleDiv>
-          <CircleDiv backgroundColor="green"> </CircleDiv>
+          <CircleDiv backgroundColor="var(--secondaryRosyPink)"> </CircleDiv>
+          <CircleDiv backgroundColor="var(--secondaryPeachOrange)"> </CircleDiv>
         </SmallWinBar>
         <WindowSideBar>
           {foldersContentAndInfo.map((folder) => {
