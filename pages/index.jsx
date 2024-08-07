@@ -14,7 +14,6 @@ export const DataContext = createContext();
 // const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({setRefValue, projects , likes, folders,imageUrl, pdf}) {
-   
   // console.log("folders",folders);
   return (
     <DataContext.Provider value={{folders,pdf}}>

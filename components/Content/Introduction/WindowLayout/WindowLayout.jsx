@@ -25,38 +25,31 @@ const WindowLayout = ({
   setOpenedWindow,
   foldersContentAndInfo,
   selectedObj,
-  windowsArray
+  windowsArray,
 }) => {
   const [selectedFolderInNavigation, setSelectedFolderInNavigation] = useState(
     selectedObj.id
   );
-  const [openedWinds, setopenedWinds] = useState()
+  const [openedWinds, setopenedWinds] = useState();
   const divRef = useRef(null);
   const clickOutside = useClickOutside(divRef, setOpenedWindow);
 
   const { position, onMouseDown } = useDraggable(50, 50, divRef);
   // console.log("windowsArray inside ",windowsArray)
   useEffect(() => {
-    
-      const opened = foldersContentAndInfo.filter(folder => 
-        {
-          return windowsArray.some((window)=>{
-            console.log(" folder.id === window", folder.id === window)
-          return  folder.id === window
-          })
-        }
-        )
-        setopenedWinds(opened)
-        
-    console.log("opened",opened)
-    // console.log("windowsArray inside ",windowsArray)
-    
+    const opened = foldersContentAndInfo.filter((folder) => {
+      return windowsArray.some((window) => {
+        console.log(" folder.id === window", folder.id === window);
+        return folder.id === window;
+      });
+    });
+    setopenedWinds(opened);
 
-  }, [windowsArray,foldersContentAndInfo])
-  
+    console.log("opened", opened);
+    // console.log("windowsArray inside ",windowsArray)
+  }, [windowsArray, foldersContentAndInfo]);
 
   return (
-    
     <SmallWinWrapper ref={divRef} onMouseDown={onMouseDown} position={position}>
       <FolderSidebar>
         <SmallWinBar>
@@ -65,7 +58,7 @@ const WindowLayout = ({
             onClick={() => setOpenedWindow(false)}
           >
             <div>
-              <IoClose color="#FFF8D1" size={12}/>
+              <IoClose color="#FFF8D1" size={12} />
             </div>
           </CircleDiv>
           <CircleDiv backgroundColor="var(--secondaryRosyPink)"> </CircleDiv>
@@ -78,23 +71,26 @@ const WindowLayout = ({
             //   folder.id === selectedObj.id,
             //   folder.id
             // );
-            return (
-              <SideBarItem
-                key={folder.id}
-                selected={
-                  folder.id ===
-                  filterFolders(
-                    foldersContentAndInfo,
-                    selectedFolderInNavigation
-                  ).id
-                    ? true
-                    : false
-                }
-                onClick={() => setSelectedFolderInNavigation(folder.id)}
-              >
-                {folder.name}
-              </SideBarItem>
-            );
+
+            if (!folder.swipeToSection) {
+              return (
+                <SideBarItem
+                  key={folder.id}
+                  selected={
+                    folder.id ===
+                    filterFolders(
+                      foldersContentAndInfo,
+                      selectedFolderInNavigation
+                    ).id
+                  }
+                  onClick={() => setSelectedFolderInNavigation(folder.id)}
+                >
+                  {folder.name}
+                </SideBarItem>
+              );
+            } else {
+              return null;
+            }
           })}
         </WindowSideBar>
       </FolderSidebar>
@@ -104,8 +100,7 @@ const WindowLayout = ({
             {/* <FaChevronLeft />
             <FaChevronRight /> */}
             {/* <HiFolderOpen size={22} color="#3a4156"/> */}
-            <GrFormNext size={22} color="#3a4156"/>
-           
+            <GrFormNext size={22} color="#3a4156" />
           </PreviousNextDiv>
           {
             filterFolders(foldersContentAndInfo, selectedFolderInNavigation)
@@ -122,8 +117,8 @@ const WindowLayout = ({
           />
         </ContentSideBar>
       </FolderContentDiv>
-      </SmallWinWrapper>
-      /* <FolderSidebar>
+    </SmallWinWrapper>
+    /* <FolderSidebar>
         <SmallWinBar>
           <CircleDiv
             backgroundColor="red"
@@ -174,7 +169,6 @@ const WindowLayout = ({
           />
         </ContentSideBar>
       </FolderContentDiv> */
-    
   );
 };
 

@@ -98,32 +98,7 @@ const IntroSection = () => {
 
   const [fetchedFolders, setFetchedFolders] = useState()
   const [windowsArray, setWindowsArray] = useState([]) 
-  // const folders = useData();
 
-
-  // useEffect(()  => {
-  //  (async()=>{
-  //   const folders =  await fetchFolders()
-  // setFetchedFolders(folders)
-   
-  //  })()
-  // }, [])
-
-  // function filterFolders (){
-  //     const selectedFolder = folders.filter(folder => folder.id === folderIndex);
-      
-  //     return selectedFolder[0]
-  // }
-
-
-
-  // let result = 0
-  // useEffect(() => {
-  //    result = filterFolders()
-    
-  //   //  setFetchedFolders(result)
-  //    console.log("result ", result)
-  // }, [folderIndex])
   
   useEffect(() => {
     if (folderIndex) {  // Ensure folderIndex is not empty or undefined
@@ -217,6 +192,7 @@ const IntroSection = () => {
                   />
                 );
               })}
+              
             </IconsContainer>
           </ScreenIconsDiv>
         </IntroDetailsBox>

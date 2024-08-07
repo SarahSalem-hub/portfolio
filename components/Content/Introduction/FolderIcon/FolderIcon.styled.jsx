@@ -18,7 +18,7 @@ export const Image_Folder = styled.div`
 
 `;
 export const Div_Folder = styled.div`
-  width: 140px;
+  width: 120px;
   /* padding-bottom: 5px; */
   /* height: 100px; */
   /* background-color: #ff000042;  */
@@ -34,7 +34,7 @@ export const Div_Folder = styled.div`
   
   }
     @media only screen and (max-width: 700px) {
-    width: 90px;
+    width: 100px;
   }
 `;
 
@@ -49,4 +49,8 @@ export const P_FolderName = styled.p`
   letter-spacing: 0.5px;
   font-weight: 700;
   /* text-shadow: -3px 4px 17px rgba(52,46,46,0.6); */
+  @media only screen and (max-width: 700px) {
+    font-size: 12px;
+  }
+
 `;

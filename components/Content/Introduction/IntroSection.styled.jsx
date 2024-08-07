@@ -179,27 +179,31 @@ export const ScreenIconsDiv = styled.div`
 export const IconsContainer = styled.div`
   direction: rtl;
   /* max-width: 900px; */
-  height: calc(100% - 70px);
+  height: calc(100% - 50px);
   /* height: 100%; */
   /* background-color: #8aba83; */
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  grid-auto-rows: 115px;
+  grid-auto-rows: 115px; */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
   gap: 10px;
   padding-block: 10px;
   padding-right: 10px;
   /* margin-top: 5rem; */
-  align-content: center ;
+  align-content: start ;
 
   
   
   @media only screen and (max-width: 1000px) {
-  
-    grid-auto-flow: row; 
-    /* grid-auto-rows: 115px; */
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 115px;
+    
+    /* background-color: #c57070;  */
+    width: 70%;
+    height:400px;
     padding: 0;
     margin: 0;
+    justify-content: start;
+    align-content: center;
   }
 `;

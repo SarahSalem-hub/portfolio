@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import {
   BehindTab,
   BehindTabHeaderLayout,
@@ -36,63 +36,58 @@ import AboutMeTab from "../../components/Content/AboutMeTab/AboutMeTab";
 import { UserContext } from "@/pages/_app";
 import { TabName } from "@/components/Content/Projects/SingleProject.styled";
 
-function Skills({likes}) {
+function Skills({ likes }) {
   const [overlape, setOverlape] = useState({
     frontTab: 0,
     BehindTab: 1,
     contactTab: 0,
   });
-  const {tabs,setActiveTab} = useContext(UserContext)
+  const { tabs, setActiveTab } = useContext(UserContext);
 
   useEffect(() => {
-    setActiveTab("about-me")
-  }, [])
-  
+    setActiveTab("about-me");
+  }, [setActiveTab]);
 
- 
   return (
     <SkillsSection ref={tabs}>
       <Tabs>
-        
-        <BehindTab>
+        <BehindTab id="aboutMe">
           <BehindTabHeaderLayout
-            onClick={() =>
-              {setOverlape({ frontTab: 0, BehindTab: 1, contactTab: 0 });
-              setActiveTab("about-me")}
-            }
+            onClick={() => {
+              setOverlape({ BehindTab: 1 });
+              setActiveTab("about-me");
+            }}
             overlap={overlape.BehindTab}
           >
-            <TabName >About Me</TabName>
+            <TabName>About Me</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
           </BehindTabHeaderLayout>
         </BehindTab>
-        <FrontTab>
+        <FrontTab id="skills">
           <FrontTabHeaderLayout
-            onClick={() =>
-              
-            {setOverlape({ frontTab: 1, BehindTab: 0, contactTab: 0 });
-            setActiveTab("skills")}
-              
-            }
+            onClick={() => {
+              setOverlape({ frontTab: 1 });
+              setActiveTab("skills");
+            }}
             overlap={overlape.frontTab}
           >
-            <TabName >Skills</TabName>
+            <TabName>Skills</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
           </FrontTabHeaderLayout>
         </FrontTab>
-        <ContactTab>
+        <ContactTab id="contactMe">
           <ContactTabHeaderLayout
-            onClick={() =>
-             { setOverlape({ frontTab: 0, BehindTab: 0, contactTab: 1 });
-             setActiveTab("contact-me")}
-            }
+            onClick={() => {
+              setOverlape({ contactTab: 1 });
+              setActiveTab("contact-me");
+            }}
             overlap={overlape.contactTab}
           >
-            <TabName >Contact Me</TabName>
+            <TabName>Contact Me</TabName>
             <TabClosing>
               <IoClose className="Icon" size={20} />
             </TabClosing>
@@ -105,7 +100,7 @@ function Skills({likes}) {
           case overlape.frontTab === 1:
             return <SkillsTab />;
           case overlape.BehindTab === 1:
-            return <AboutMeTab  setOverlape={setOverlape} likes={likes} />;
+            return <AboutMeTab setOverlape={setOverlape} likes={likes} />;
           case overlape.contactTab === 1:
             return <ContactFormTab />;
         }
