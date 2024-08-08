@@ -2,11 +2,11 @@ import { Edu } from "@/components/fonts";
 import styled from "@emotion/styled";
 
 export const ClockContainer = styled.div`
+    width: 14rem;
+    height: 140px;
     position: absolute;
-    left: 25px;
-    top: 110px;
-    width: 15rem;
-    height: 160px;
+    left: 40px;
+    top: 160px;
     border-radius: 25px;
     /* outline: 1px solid grey; */
     background-color: aliceblue;
