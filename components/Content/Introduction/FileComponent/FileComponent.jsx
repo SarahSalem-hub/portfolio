@@ -62,6 +62,7 @@ const FileComponent = ({files}) => {
         <FileContainer key={file.id} onClick={()=> console.log("content",file)}>
         <FileImage>
           {/* <a href={"#"} onClick={()=>sendRequest(file.url)}> */}
+           <a href={file.fileUrl ? file.fileUrl : null} target='_blank' onClick={()=> console.log("file url",file.url)}>
           <ImageLayout>
           <Image src={"/assets/images/document back side.svg"} alt="" width={100} height={100}/>
           <Image src={"/assets/images/document front side.svg"} alt="" width={100} height={100}/>
@@ -73,7 +74,7 @@ const FileComponent = ({files}) => {
           </FileTypeIcon>
           </ImageLayout>
          
-            {/* </a> */}
+            </a>
             {/* <Image src={"/assets/images/file-pdf-svgrepo-com.svg"} alt='file icon' fill />  */}
         </FileImage>
         <FileName>

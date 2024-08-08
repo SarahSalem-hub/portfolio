@@ -1,5 +1,5 @@
 import React from "react";
-import { Div_Folder, Image_Folder, P_FolderName } from "./FolderIcon.styled";
+import { Div_Folder, Image_Folder, P_FolderName, ShortcutFolder } from "./FolderIcon.styled";
 import { FcOpenedFolder } from "react-icons/fc";
 
 const FolderIcon = ({ folder, setOpenedWindow, setFolderiIndex }) => {
@@ -32,13 +32,21 @@ const FolderIcon = ({ folder, setOpenedWindow, setFolderiIndex }) => {
       id={folder.id}
       onClick={() => {
         swipeOrOpenWindowChecker(folder);
-        setOpenedWindow(folder.swipeToSection ? false : true),
-          setFolderiIndex(folder.id);
+        setOpenedWindow(folder.swipeToSection ? false : true);
+        setFolderiIndex(folder.id);
       }}
     >
+      {folder.swipeToSection ? 
+       <ShortcutFolder>
+          <FcOpenedFolder size={90} />
+          <img src="./assets/images/shortcut.png" alt=""/>
+      </ShortcutFolder>
+      :
       <Image_Folder>
-        <FcOpenedFolder size={90} />
-      </Image_Folder>
+      <FcOpenedFolder size={90} />
+    </Image_Folder> 
+      }
+     
       <P_FolderName>{folder.name}</P_FolderName>
     </Div_Folder>
   );

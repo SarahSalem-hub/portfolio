@@ -14,9 +14,28 @@ export const Image_Folder = styled.div`
     width: 50px;
   }
   }
-  
-
 `;
+
+export const ShortcutFolder = styled(Image_Folder)`
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: relative;
+
+  img{
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    bottom: 12px;
+    left: 0px;
+  }
+  @media only screen and (max-width: 700px) {
+    img {
+      bottom:20px
+    }
+  }
+
+`
 export const Div_Folder = styled.div`
   width: 120px;
   /* padding-bottom: 5px; */
