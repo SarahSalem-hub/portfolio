@@ -25,7 +25,9 @@ import { DataContext, useData } from "@/pages";
 import { useFoldersContentAndInfo } from "./data.js"
 import { filterFolders } from "./WindowLayout/helpers";
 import Image from "next/image";
-import Clock from "./ClockWidget/Clock";
+import Clock from "./WidgetsComps/ClockWidget/Clock";
+import AvailabilityWidget from "./WidgetsComps/AvailabilityWidget/AvailabilityWidget";
+import { WidgetsComps } from "./WidgetsComps/WidgetsComps";
 
 
 const windowLayoutData = [
@@ -207,7 +209,7 @@ const IntroSection = () => {
         )}
        
       </IntroDiv>
-      <Clock/>
+      <WidgetsComps/>
     </ExternalIntroDiv>
   );
 };

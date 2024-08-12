@@ -4,9 +4,9 @@ import styled from "@emotion/styled";
 export const ClockContainer = styled.div`
     width: 14rem;
     height: 140px;
-    position: absolute;
-    left: 40px;
-    top: 160px;
+    /* position: absolute; */
+    /* left: 40px;
+    top: 160px; */
     border-radius: 25px;
     /* outline: 1px solid grey; */
     background-color: aliceblue;
@@ -23,14 +23,17 @@ export const ClockContainer = styled.div`
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 
+    flex-shrink: 0;
+
     @media screen and (max-width: 900px){
-        width: fit-content;
+        /* min-width:; */
+        width: max-content;
         height: fit-content;
         flex-direction: row;
         padding: 10px;
-        top: 130px;
+        /* top: 130px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
         align-items: end;
     }
 `
@@ -52,7 +55,7 @@ export const Time = styled.div`
     }
 
     @media screen and (max-width: 900px){
-       font-size: 30px;
+       font-size: 25px;
        
     }
 

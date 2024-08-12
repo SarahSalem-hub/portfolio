@@ -21,6 +21,10 @@ export const ExternalIntroDiv = styled.div`
     /* padding-top: 152px; */
     /* background-color: green; */
   }
+  @media only screen and (max-width: 700px) {
+   display: flex;
+   flex-direction: column;
+  }
 `;
 
 export const IntroDiv = styled.div`
