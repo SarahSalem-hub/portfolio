@@ -45,6 +45,7 @@ export const Div_Folder = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  padding-bottom: 5px;
  
   &:hover {
     /* scale: 1.3; */
