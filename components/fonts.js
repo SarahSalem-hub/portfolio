@@ -42,5 +42,5 @@ export const mynerve = Mynerve({
 export const ShantellSans = Shantell_Sans({
   subsets: ["latin"],
     weight: ["300"],
-    style: "italic"
+    style: "normal"
 })

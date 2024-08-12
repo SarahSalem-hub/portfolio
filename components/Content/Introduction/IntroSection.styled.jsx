@@ -18,12 +18,13 @@ export const ExternalIntroDiv = styled.div`
   }
   @media only screen and (min-width: 2024px) {
     height: 800px;
-    /* padding-top: 152px; */
+   
     /* background-color: green; */
   }
   @media only screen and (max-width: 700px) {
    display: flex;
    flex-direction: column;
+   padding-top: 132px;
   }
 `;
 
