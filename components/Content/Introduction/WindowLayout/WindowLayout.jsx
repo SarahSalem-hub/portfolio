@@ -5,6 +5,9 @@ import {
   FolderContentDiv,
   FolderSidebar,
   FolderTitle,
+  IconAndTitleContainer,
+  ListFolder,
+  ListFolderItem,
   PreviousNextDiv,
   SideBarItem,
   SmallWinBar,
@@ -20,6 +23,9 @@ import { filterFolders } from "./helpers";
 import useClickOutside from "@/hooks/useClickOutside";
 import { HiFolderOpen } from "react-icons/hi";
 import { GrFormFolder, GrFormNext } from "react-icons/gr";
+import { Resizable } from "./Resizable";
+import Link from "next/link";
+import Image from "next/image";
 
 const WindowLayout = ({
   setOpenedWindow,
@@ -33,6 +39,8 @@ const WindowLayout = ({
   const [openedWinds, setopenedWinds] = useState();
   const divRef = useRef(null);
   const clickOutside = useClickOutside(divRef, setOpenedWindow);
+  // const { refs, columnWidths, handleMouseDown } = useResizable(200);
+  
 
   const { position, onMouseDown } = useDraggable(50, 50, divRef);
   // console.log("windowsArray inside ",windowsArray)
@@ -49,10 +57,15 @@ const WindowLayout = ({
     // console.log("windowsArray inside ",windowsArray)
   }, [windowsArray, foldersContentAndInfo]);
 
+  const filteredFolders = filterFolders(
+    foldersContentAndInfo,
+    selectedFolderInNavigation
+  );
+
   return (
-    <SmallWinWrapper ref={divRef} onMouseDown={onMouseDown} position={position}>
+    <SmallWinWrapper ref={divRef} position={position}>
       <FolderSidebar>
-        <SmallWinBar>
+        <SmallWinBar onMouseDown={onMouseDown}>
           <CircleDiv
             backgroundColor="var(--primaryGrey)"
             onClick={() => setOpenedWindow(false)}
@@ -66,12 +79,6 @@ const WindowLayout = ({
         </SmallWinBar>
         <WindowSideBar>
           {foldersContentAndInfo.map((folder) => {
-            // console.log(
-            //   "if selected folder ",
-            //   folder.id === selectedObj.id,
-            //   folder.id
-            // );
-
             if (!folder.swipeToSection) {
               return (
                 <SideBarItem
@@ -95,80 +102,89 @@ const WindowLayout = ({
         </WindowSideBar>
       </FolderSidebar>
       <FolderContentDiv>
-        <FolderTitle>
+        <FolderTitle onMouseDown={onMouseDown}>
           <PreviousNextDiv>
             {/* <FaChevronLeft />
             <FaChevronRight /> */}
             {/* <HiFolderOpen size={22} color="#3a4156"/> */}
             <GrFormNext size={22} color="#3a4156" />
           </PreviousNextDiv>
-          {
-            filterFolders(foldersContentAndInfo, selectedFolderInNavigation)
-              .name
-          }
+          {filteredFolders.name}
         </FolderTitle>
 
-        <ContentSideBar>
-          <FileComponent
-            files={
-              filterFolders(foldersContentAndInfo, selectedFolderInNavigation)
-                .files
-            }
-          />
-        </ContentSideBar>
+        {!filteredFolders.isList ? (
+          <ContentSideBar>
+            <FileComponent files={filteredFolders.files} />
+          </ContentSideBar>
+        ) : (
+          <>
+            {filteredFolders.files ? (
+              <ListFolder>
+                <table>
+                  <thead>
+                    <tr>
+                      {["Name", "Website", "", ""].map((title, index) => (
+                        <Resizable
+                          key={title}
+                          minWidth="150px" // Set a minimum width that fits content
+                         
+                        >
+                          {({ ref }) => (
+                            <th className="column">
+                              {title}
+
+                              <div className="resizer" ref={ref} />
+                            </th>
+                          )}
+                        </Resizable>
+                      ))}
+                    </tr>
+                    <tr>
+                      <th id="last" colspan="6"></th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {filteredFolders.files.map((file, index) => (
+                      <ListFolderItem
+                        key={index}
+                        linkColor={file.link ? true : false}
+                      >
+                        <td>
+                          {(() => {
+                            const content = (
+                              <IconAndTitleContainer>
+                                <Image
+                                  src={`https://www.google.com/s2/favicons?domain=https://${file.website}&sz=32`}
+                                  alt="icon"
+                                  width={13}
+                                  height={13}
+                                  priority
+                                />
+                                <div id="text">{file.title}</div>
+                              </IconAndTitleContainer>
+                            );
+
+                            return file.link ? (
+                              <Link href={file.link}>{content}</Link>
+                            ) : (
+                              content
+                            );
+                          })()}
+                        </td>
+                        <td>{file.website}</td>
+                        <td></td>
+                        <td></td>
+                      </ListFolderItem>
+                    ))}
+                  </tbody>
+                </table>
+              </ListFolder>
+            ) : null}
+          </>
+        )}
       </FolderContentDiv>
     </SmallWinWrapper>
-    /* <FolderSidebar>
-        <SmallWinBar>
-          <CircleDiv
-            backgroundColor="red"
-            onClick={() => setOpenedWindow(false)}
-          >
-            <div>
-              <IoClose />
-            </div>
-          </CircleDiv>
-          <CircleDiv backgroundColor="yellow"> </CircleDiv>
-          <CircleDiv backgroundColor="green"> </CircleDiv>
-        </SmallWinBar>
-        <WindowSideBar>
-          {foldersContentAndInfo.map((folder) => {
-            console.log(
-              "if selected folder ",
-              folder.id === selectedObj.id,
-              folder.id
-            );
-            return (
-              <SideBarItem
-                selected={
-                  folder.id ===
-                  foldersContentAndInfo[selectedFolderInNavigation].id
-                    ? true
-                    : false
-                }
-                onClick={() => setSelectedFolderInNavigation(folder.id)}
-              >
-                {folder.name}
-              </SideBarItem>
-            );
-          })}
-        </WindowSideBar>
-      </FolderSidebar>
-      <FolderContentDiv>
-        <FolderTitle>
-          <PreviousNextDiv>
-            <FaChevronLeft />
-            <FaChevronRight />
-          </PreviousNextDiv>
-          {foldersContentAndInfo[selectedFolderInNavigation].name}
-        </FolderTitle>
-
-        <ContentSideBar>
-          <FileComponent
-            files={foldersContentAndInfo[selectedFolderInNavigation].files}
-          />
-        </ContentSideBar>
-      </FolderContentDiv> */
   );
 };
 

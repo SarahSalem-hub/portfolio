@@ -99,6 +99,7 @@ export const FolderContentDiv = styled.div`
   border-top-right-radius: inherit;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 `;
 
 export const ContentSideBar = styled.div`
@@ -209,7 +210,7 @@ export const SideBarItem = styled.div`
           );
           outline: 1px solid #9f9d9d82; */
           /* color: #292e3e; */
-          
+
           /* border-radius: 5px;
           padding-inline: 5px; */
           /* margin: 0; */
@@ -238,6 +239,211 @@ export const PreviousNextDiv = styled.div`
   justify-content: center;
   margin-right: 2px;
 `;
+
+//// list view folder
+
+export const ListFolder = styled.div`
+  /* background-color: #be81be; */
+  width: 100%;
+  height: 100%;
+
+  /* flex-direction: row; */
+  overflow-x: auto;
+
+  table {
+    margin: 5px 0 0 5px;
+    max-width: 500px;
+    /* max-width: 700px; */
+    width: 300px;
+    /* height: 100%; */
+    overflow-x: scroll;
+    /* display: table; */
+    table-layout: fixed;
+    /* width: 300px; */
+    /* border-collapse: collapse; */
+    text-align: left;
+
+ 
+  }
+
+  thead {
+    /* background: rgb(113, 113, 113); */
+    /* margin: 40px; */
+    position: sticky;
+    top: 0;
+    /* background-color: white; */
+    left: 0;
+    z-index: 1;
+   background-color: rgb(214 204 192);;
+   /* background-color: red; */
+
+   #last {
+    height: 1px;
+  padding: 0;
+  background-color: black;
+   }
+  }
+
+  tbody {
+    margin: 5px 0 0 5px;
+    tr:nth-child(odd) {
+      /* background-color: black; */
+      /* color: white; */
+    }
+
+    tr:nth-child(even) {
+      background-color: #ffffff56;
+      border-radius: 25%;
+      color: black;
+    }
+  }
+  td {
+    padding: 5px 10px;
+    height: 30px;
+
+    
+  }
+
+  th {
+    width: 220px;
+    max-width: 500px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    
+    /* :last-child{
+      background-color: red;
+      width: 100%;
+    } */
+  }
+
+
+  .column {
+    position: relative;
+  }
+
+  .resizer {
+    background: transparent;
+    cursor: col-resize;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+    width: 0.25rem;
+    &::after {
+      content: "|";
+      font-size: 15px;
+      color: #0000003a;
+      font-weight: 300;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      right: 0;
+      top: 0;
+      bottom: 0; /* Covers the full height of the element */
+      width: 10px;
+      height: 100%;
+    }
+  }
+  .resizer:hover {
+    background: rgb(99 102 241);
+  }
+  /* th:first-child, */
+  td:first-child,
+  tr:first-child {
+    border-radius: 10px 0 0 10px;
+  }
+
+  /* th:last-child, */
+  td:last-child,
+  tr:last-child {
+    border-radius: 0 10px 10px 0;
+  }
+
+
+  
+`;
+export const ListFolderItem = styled.tr`
+
+
+
+  /* a {
+    color: ${props => props.linkColor ? "inhret" : "black"};
+
+    :hover {
+
+    }
+  } */
+  /* border-bottom: 1px solid #b2b2b2; */
+  /* margin-left: 10px; */
+  /* background-color: aquamarine; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: 200px; */
+  /* width: auto; */
+  /* height: 60px; */
+
+  /* & > div:first-child {
+    width: inherit;
+    background-color: #7474bb;
+    border: 0.5px solid red;
+   
+    
+  } */
+  /* &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0; /* Covers the full height of the element */
+  // width: 10px; /* Custom resize area width */
+  //cursor: ew-resize; /* Resize cursor */
+  //z-index: 1;
+  //background-color: transparent; /* Invisible, but functional */
+  //} */
+`;
+
+export const IconAndTitleContainer = styled.div`
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;        /* Prevents text from wrapping */
+  overflow: hidden;           /* Hides overflowing text */
+  text-overflow: ellipsis; 
+  /* max-width: 150px; */
+
+
+  #text {
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; 
+  }
+
+  
+  /* &:after{
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1.5rem;
+    width: 25%;
+    border-radius: 50%;
+    background: linear-gradient(to right, transparent, #ffffff57);
+  } */
+`
+
+
+
+
+
+
+
+
 
 /*
   /* ${(props) =>

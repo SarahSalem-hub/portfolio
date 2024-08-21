@@ -42,14 +42,12 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
         window.scrollY <= projectSectionY + projectSectionHeight
       ) {
         setUrlName("SarahSalem.com/projects");
-      }else if (
+      } else if (
         window.scrollY >= tabsY - 300 &&
         window.scrollY <= tabsY + tabsHeight - 50
       ) {
         setUrlName(`SarahSalem.com/${activeTab}`);
-      }
-      
-      else {
+      } else {
         setUrlName("SarahSalem.com");
       }
     } else {
@@ -62,27 +60,25 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
   }, [urlName, projectSectionY]);
 
   useEffect(() => {
-    
-    getProjectsPosition()
+    getProjectsPosition();
     getTabsPosition();
     window.addEventListener("scroll", getProjectsPosition);
     window.addEventListener("scroll", getTabsPosition);
   }, []);
-  
+
   useEffect(() => {
-    checkURLName()
-  }, [activeTab])
-  
-  
+    checkURLName();
+  }, [activeTab]);
+
   return (
     <WindowBar>
       <WindowIconlinkUrL>
         <FaCode className="Icon" size={40} />
 
         {/* <UrlContainer onMouseEnter={() => setActive(true)}> */}
-          <UrlDiv>
-            <UrlTitle font="18px">{urlName}</UrlTitle>
-            {/* {isActive && (
+        <UrlDiv>
+          <UrlTitle font="18px">{urlName}</UrlTitle>
+          {/* {isActive && (
               <UrlMenu onMouseLeave={() => setActive(false)}>
                 <Link href="/">
                   <li>
@@ -101,7 +97,7 @@ function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
                 </Link>
               </UrlMenu>
             )} */}
-          </UrlDiv>
+        </UrlDiv>
         {/* </UrlContainer> */}
       </WindowIconlinkUrL>
       <WindowClosingDiv>

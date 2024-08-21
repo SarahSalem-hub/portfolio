@@ -10,19 +10,21 @@ export default function App({ Component, pageProps }) {
   const projectSection = useRef();
   const tabs = useRef();
   // const activeTab = useRef()
-  const [activeTab, setActiveTab] = useState("aboutMe")
+  const [activeTab, setActiveTab] = useState("aboutMe");
 
  
   return (
     <>
-      <UserContext.Provider value={{projectSection,tabs,setActiveTab,activeTab}}>
+      <UserContext.Provider
+        value={{ projectSection, tabs, setActiveTab, activeTab }}
+      >
         <WindowBarComp
           urlName={urlName}
           isActive={isActive}
           setActive={setActive}
           setUrlName={setUrlName}
         />
-        <Component {...pageProps}  />
+        <Component {...pageProps} />
       </UserContext.Provider>
     </>
   );
