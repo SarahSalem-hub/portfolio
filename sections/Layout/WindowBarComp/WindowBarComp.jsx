@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
-import { WindowBar } from "../Content/Content.styled";
-import { UrlTitle } from "@/components/Content/Projects/ProjSection.styled";
+// import { WindowBar } from "../Content/Content.styled";
+import { UrlTitle } from "@/sections/Home/Projects/ProjSection.styled";
 import { FaCode } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
@@ -13,14 +13,14 @@ import {
   WindowIconlinkUrL,
 } from "./WindowBarComp.styled";
 import { UserContext } from "@/pages/_app";
+import { WindowBar } from "@/sections/Home/HomeComponents.styled";
 
 function WindowBarComp({ urlName, isActive, setActive, setUrlName }) {
-  const { projectSection,tabs,activeTab} = useContext(UserContext);
+  const { projectSection, tabs, activeTab } = useContext(UserContext);
   const [projectSectionY, setprojectSectionY] = useState();
   const [projectSectionHeight, setprojectSectionHeight] = useState();
   const [tabsY, setTabsY] = useState();
   const [tabsHeight, setTabsHeight] = useState();
-
 
   const getProjectsPosition = () => {
     const y = projectSection.current?.offsetTop;

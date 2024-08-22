@@ -1,7 +1,7 @@
 import {
   StyledContent,
   TransparentLayout,
-} from "@/components/Content/Content.styled";
+} from "@/sections/Home/Content.styled";
 import ProjectsSection from "@/components/Content/Projects/ProjectsSection";
 import React from "react";
 

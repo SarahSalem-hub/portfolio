@@ -14,21 +14,20 @@ import {
   Nameh1,
   ScreenIconsDiv,
   StyledAnimatedImage,
-} from "./IntroSection.styled";
+} from "./IntroSection.styled.jsx";
 import introImage from "../../../public/assets/images/intro-image.jpg";
 import { useSpring } from "@react-spring/web";
 import orangeHat from "../../../public/assets/images/pamela-hat.png";
-import WindowLayout from "./WindowLayout/WindowLayout";
-import FolderIcon from "./FolderIcon/FolderIcon";
+import WindowLayout from "./WindowLayout/WindowLayout.jsx";
+import FolderIcon from "./FolderIcon/FolderIcon.jsx";
 import { fetchFolders } from "@/utils/firebase";
 import { DataContext, useData } from "@/pages";
-import { useFoldersContentAndInfo } from "./data.js"
-import { filterFolders } from "./WindowLayout/helpers";
+import { useFoldersContentAndInfo } from "./data.js";
+import { filterFolders } from "./WindowLayout/helpers.jsx";
 import Image from "next/image";
-import Clock from "./WidgetsComps/ClockWidget/Clock";
-import AvailabilityWidget from "./WidgetsComps/AvailabilityWidget/AvailabilityWidget";
-import { WidgetsComps } from "./WidgetsComps/WidgetsComps";
-
+import Clock from "./WidgetsComps/ClockWidget/Clock.jsx";
+import AvailabilityWidget from "./WidgetsComps/AvailabilityWidget/AvailabilityWidget.jsx";
+import { WidgetsComps } from "./WidgetsComps/WidgetsComps.jsx";
 
 const windowLayoutData = [
   { id: 0, left: -100, top: 100, side: "top" },
@@ -85,8 +84,6 @@ const windowLayoutData = [
 //   { id: 3, name: "study-sources", content: "my study sources" },
 // ];
 
-
-
 const IntroSection = () => {
   // const foldersContentAndInfo = useFoldersContentAndInfo();
   const [shownhat, setHat] = useState(false);
@@ -95,22 +92,22 @@ const IntroSection = () => {
     display: shownhat ? "inline-block" : "none",
   });
   const [openedWindow, setOpenedWindow] = useState(false); // track whether folder opened or not
-  const [folderIndex, setFolderiIndex] = useState("");//index of opened folder
-  const { folders } =  useContext(DataContext);
+  const [folderIndex, setFolderiIndex] = useState(""); //index of opened folder
+  const { folders } = useContext(DataContext);
 
-  const [fetchedFolders, setFetchedFolders] = useState()
-  const [windowsArray, setWindowsArray] = useState([]) 
+  const [fetchedFolders, setFetchedFolders] = useState();
+  const [windowsArray, setWindowsArray] = useState([]);
 
-  
   useEffect(() => {
-    if (folderIndex) {  // Ensure folderIndex is not empty or undefined
-      setWindowsArray(prevArray =>Array.from( new Set([...prevArray, folderIndex])) );
+    if (folderIndex) {
+      // Ensure folderIndex is not empty or undefined
+      setWindowsArray((prevArray) =>
+        Array.from(new Set([...prevArray, folderIndex]))
+      );
     }
-  }, [folderIndex])
+  }, [folderIndex]);
 
-  
-
-  console.log("windowsArray",new Set(windowsArray))
+  console.log("windowsArray", new Set(windowsArray));
 
   return (
     <ExternalIntroDiv>
@@ -145,11 +142,12 @@ const IntroSection = () => {
               A<DecoratedText color="#ce7e31"> Software Engineer</DecoratedText>{" "}
               and a recent{" "}
               <IntroEmoji>
-                <Image width="20"
+                <Image
+                  width="20"
                   height="20"
                   src="https://img.icons8.com/color/96/000000/student-female.png"
-                  alt="student-female"/>
-               
+                  alt="student-female"
+                />
               </IntroEmoji>{" "}
               from the frontend bootcamp at{" "}
               <a
@@ -159,27 +157,27 @@ const IntroSection = () => {
               >
                 <DecoratedText color="#fb5456">Re:Coded</DecoratedText>
               </a>{" "}
-              ,this is my portfolio that I&apos;ve made and
-              I&apos;m looking forward to enhance it{" "}
+              ,this is my portfolio that I&apos;ve made and I&apos;m looking
+              forward to enhance it{" "}
               <IntroEmoji>
                 <Image
-                width={100}
-                height={100}
+                  width={100}
+                  height={100}
                   src="https://img.icons8.com/color/48/maintenance.png"
-                  alt="maintenance"/>
-                
+                  alt="maintenance"
+                />
               </IntroEmoji>{" "}
               and fill it with my future projects
               <IntroEmoji>
-                <Image  width="25"
+                <Image
+                  width="25"
                   height="25"
                   src="https://img.icons8.com/color/48/sparkling.png"
-                  alt="sparkling"/>
-                
+                  alt="sparkling"
+                />
               </IntroEmoji>
               .
             </IntroDescription>
-            
           </DetailsOuterDiv>
           <ScreenIconsDiv>
             <IconsContainer>
@@ -190,37 +188,30 @@ const IntroSection = () => {
                     folder={folder}
                     setOpenedWindow={setOpenedWindow}
                     setFolderiIndex={setFolderiIndex}
-                    
                   />
                 );
               })}
-              
             </IconsContainer>
           </ScreenIconsDiv>
         </IntroDetailsBox>
         {openedWindow && (
-         
           <WindowLayout
-            selectedObj={filterFolders(folders,folderIndex)}
+            selectedObj={filterFolders(folders, folderIndex)}
             foldersContentAndInfo={folders}
             setOpenedWindow={setOpenedWindow}
             windowsArray={windowsArray}
           />
         )}
-       
       </IntroDiv>
-      <WidgetsComps/>
+      <WidgetsComps />
     </ExternalIntroDiv>
   );
 };
 
 export default IntroSection;
 
-
-
-
- // <WindowLayout
-          //   selectedObj={foldersContentAndInfo[folderIndex]}
-          //   foldersContentAndInfo={foldersContentAndInfo}
-          //   setOpenedWindow={setOpenedWindow}
-          // />
+// <WindowLayout
+//   selectedObj={foldersContentAndInfo[folderIndex]}
+//   foldersContentAndInfo={foldersContentAndInfo}
+//   setOpenedWindow={setOpenedWindow}
+// />

@@ -40,7 +40,6 @@ const WindowLayout = ({
   const divRef = useRef(null);
   const clickOutside = useClickOutside(divRef, setOpenedWindow);
   // const { refs, columnWidths, handleMouseDown } = useResizable(200);
-  
 
   const { position, onMouseDown } = useDraggable(50, 50, divRef);
   // console.log("windowsArray inside ",windowsArray)
@@ -127,7 +126,6 @@ const WindowLayout = ({
                         <Resizable
                           key={title}
                           minWidth="150px" // Set a minimum width that fits content
-                         
                         >
                           {({ ref }) => (
                             <th className="column">

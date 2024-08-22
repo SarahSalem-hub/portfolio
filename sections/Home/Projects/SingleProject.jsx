@@ -19,7 +19,7 @@ import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai";
 import { Fredoka } from "@/components/fonts";
 import { TbLink, TbLinkOff } from "react-icons/tb";
-import { EmojiSize } from "../AboutMeTab/AboutMeTab.styled";
+import { EmojiSize } from "../details/AboutMeTab/AboutMeTab.styled";
 import { BiSolidHot } from "react-icons/bi";
 import { Box, Skeleton } from "@mui/material";
 
@@ -63,17 +63,23 @@ function SingleProjectComp({
               {image ? (
                 <ProImg src={image} alt="project" />
               ) : (
-                <Box sx={{ pt: 0.5 }} className=" flex justify-center flex-col w-full">
-                   <Skeleton variant="rectangular" width="100%" height="231px" />
-                  <Skeleton width="100%"/>
+                <Box
+                  sx={{ pt: 0.5 }}
+                  className=" flex justify-center flex-col w-full"
+                >
+                  <Skeleton variant="rectangular" width="100%" height="231px" />
+                  <Skeleton width="100%" />
                   <Skeleton width="60%" />
                 </Box>
               )}
             </ProjImageDiv>
             <ProDetails>
               <Title className={Fredoka.className} style={{ fontSize: "18px" }}>
-                {description ? `${description.substring(0, 120)} ...`:
-                 <Skeleton width="60%" />}
+                {description ? (
+                  `${description.substring(0, 120)} ...`
+                ) : (
+                  <Skeleton width="60%" />
+                )}
               </Title>
             </ProDetails>
           </ImageAndDetails>

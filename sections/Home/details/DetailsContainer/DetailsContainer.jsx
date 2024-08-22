@@ -27,16 +27,16 @@ import {
   Tabs,
   TitleDiv,
   TriangleAffect,
-} from "./Skills.styled";
+} from "./DetailsContainer.styled";
 import { IoClose } from "react-icons/io5";
-import { Title } from "../../components/Content/Projects/ProjSection.styled";
-import ContactFormTab from "../../components/Content/ContactFormTab/ContactFormTab";
-import SkillsTab from "../../components/Content/SkillsTab/SkillsTab";
-import AboutMeTab from "../../components/Content/AboutMeTab/AboutMeTab";
+// import { Title } from "../Home/details/Projects/ProjSection.styled";
+import ContactFormTab from "../ContactFormTab/ContactFormTab";
+import SkillsTab from "../SkillsTab/SkillsTab";
+import AboutMeTab from "../AboutMeTab/AboutMeTab";
 import { UserContext } from "@/pages/_app";
-import { TabName } from "@/components/Content/Projects/SingleProject.styled";
+import { TabName } from "../../Projects/SingleProject.styled";
 
-function Skills({ likes }) {
+function DetailsContainer({ likes }) {
   const [overlape, setOverlape] = useState({
     frontTab: 0,
     BehindTab: 1,
@@ -109,4 +109,4 @@ function Skills({ likes }) {
   );
 }
 
-export default Skills;
+export default DetailsContainer;

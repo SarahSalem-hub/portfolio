@@ -1,7 +1,7 @@
 import {
   StyledContent,
   TransparentLayout,
-} from "@/components/Content/Content.styled";
+} from "@/sections/Home/Content.styled";
 import {
   Description,
   Details,
@@ -74,7 +74,7 @@ export async function getStaticProps({ params }) {
   const docRef = doc(db, "projects", params.pid);
   const data = await getDoc(docRef);
   const SingleProData = data.data();
-  
+
   return {
     props: {
       project: SingleProData,

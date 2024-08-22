@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { SkillsDiv } from "../../../sections/Skills/Skills.styled";
+// import { SkillsDiv } from "../DetailsContainer/DetailsContainer.styled";
 import {
   AccountHeader,
   AccountIcons,
@@ -53,11 +53,9 @@ function AboutMeTab({ setOverlape }) {
   const [fillHeart, setFillHeart] = useState(false);
   const { promiseInProgress } = usePromiseTracker();
 
-
   function interestingButton() {
     // setButtonColor((prev) => !prev);
-    
-  
+
     if (fillHeart) {
       localStorage.setItem("heartChecker", JSON.stringify(false));
       updateLikes(heartClicked, "-");

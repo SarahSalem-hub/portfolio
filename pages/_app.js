@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { createContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import WindowBarComp from "@/components/WindowBarComp/WindowBarComp";
+import WindowBarComp from "@/sections/Layout/WindowBarComp/WindowBarComp";
 export const UserContext = createContext();
 
 export default function App({ Component, pageProps }) {

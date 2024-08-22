@@ -15,11 +15,12 @@ import {
   SkillsDiv,
   SkillsHeader,
   TitleDiv,
-} from "../../../sections/Skills/Skills.styled";
-import { Title } from "../Projects/ProjSection.styled";
-import { SkillsInfo } from "../../../sections/Skills/SkillsInfo";
+  
+} from "../DetailsContainer/DetailsContainer.styled";
+import { Title } from "../../Projects/ProjSection.styled";
+import { SkillsInfo } from "../DetailsContainer/SkillsInfo";
 
-function FrontTabComp() {
+function SkillsTab() {
   return (
     <SkillsDiv>
       <TitleDiv>
@@ -71,4 +72,4 @@ function FrontTabComp() {
   );
 }
 
-export default FrontTabComp;
+export default SkillsTab;
