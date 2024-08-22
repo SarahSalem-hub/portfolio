@@ -1,7 +1,4 @@
-import {
-  StyledContent,
-  TransparentLayout,
-} from "@/sections/Home/Content.styled";
+
 import {
   Description,
   Details,
@@ -13,7 +10,8 @@ import {
   ProjectContainer,
   SingleProPic,
   SingleSkill,
-} from "@/components/Content/Projects/SingleProject.styled";
+} from "@/sections/Home/Projects/SingleProject.styled";
+import { StyledContent, TransparentLayout } from "@/sections/Home/HomeComponents.styled";
 import { db, fetchProjects } from "@/utils/firebase";
 import { Divider } from "@mui/material";
 import { doc, getDoc } from "firebase/firestore";

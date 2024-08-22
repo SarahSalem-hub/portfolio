@@ -1,8 +1,7 @@
-import {
-  StyledContent,
-  TransparentLayout,
-} from "@/sections/Home/Content.styled";
-import ProjectsSection from "@/components/Content/Projects/ProjectsSection";
+
+
+import { StyledContent, TransparentLayout } from "@/sections/Home/HomeComponents.styled";
+import ProjectsSection from "@/sections/Home/Projects/ProjectsSection";
 import React from "react";
 
 function Projects() {
