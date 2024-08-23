@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
+  CategoriesContainer,
+  CategoryBox,
   CircleDiv,
   ContentSideBar,
   FolderContentDiv,
@@ -122,23 +124,25 @@ const WindowLayout = ({
                 <table>
                   <thead>
                     <tr>
-                      {["Name", "Website", "", ""].map((title, index) => (
-                        <Resizable
-                          key={title}
-                          minWidth="150px" // Set a minimum width that fits content
-                        >
-                          {({ ref }) => (
-                            <th className="column">
-                              {title}
+                      {["Name", "Category", "Website"].map(
+                        (title, index) => (
+                          <Resizable
+                            key={title}
+                            minWidth="150px" // Set a minimum width that fits content
+                          >
+                            {({ ref }) => (
+                              <th className="column">
+                                {title}
 
-                              <div className="resizer" ref={ref} />
-                            </th>
-                          )}
-                        </Resizable>
-                      ))}
+                                <div className="resizer" ref={ref} />
+                              </th>
+                            )}
+                          </Resizable>
+                        )
+                      )}
                     </tr>
                     <tr>
-                      <th id="last" colspan="6"></th>
+                      <th id="dividerRow" colspan="6"></th>
                     </tr>
                   </thead>
 
@@ -170,8 +174,18 @@ const WindowLayout = ({
                             );
                           })()}
                         </td>
+                        <td>
+                          <CategoriesContainer>
+                            {file.category
+                              ? file.category.map((category, idx) => (
+                                  <CategoryBox key={idx}>
+                                    {category}
+                                  </CategoryBox>
+                                ))
+                              : null}
+                          </CategoriesContainer>
+                        </td>
                         <td>{file.website}</td>
-                        <td></td>
                         <td></td>
                       </ListFolderItem>
                     ))}

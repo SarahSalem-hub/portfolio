@@ -274,14 +274,14 @@ export const ListFolder = styled.div`
     /* background-color: white; */
     left: 0;
     z-index: 1;
-   background-color: rgb(214 204 192);;
-   /* background-color: red; */
+    background-color: rgb(214 204 192);
+    /* background-color: red; */
 
-   #last {
-    height: 1px;
-  padding: 0;
-  background-color: black;
-   }
+    #dividerRow {
+      height: 1px;
+      padding: 0;
+      background-color: black;
+    }
   }
 
   tbody {
@@ -299,9 +299,11 @@ export const ListFolder = styled.div`
   }
   td {
     padding: 5px 10px;
-    height: 30px;
+    height: 36px;
 
-    
+    a {
+      color: #2e6d9e;
+    }
   }
 
   th {
@@ -309,13 +311,12 @@ export const ListFolder = styled.div`
     max-width: 500px;
     padding-left: 10px;
     padding-bottom: 5px;
-    
+
     /* :last-child{
       background-color: red;
       width: 100%;
     } */
   }
-
 
   .column {
     position: relative;
@@ -361,48 +362,9 @@ export const ListFolder = styled.div`
   tr:last-child {
     border-radius: 0 10px 10px 0;
   }
-
-
-  
 `;
 export const ListFolderItem = styled.tr`
-
-
-
-  /* a {
-    color: ${props => props.linkColor ? "inhret" : "black"};
-
-    :hover {
-
-    }
-  } */
-  /* border-bottom: 1px solid #b2b2b2; */
-  /* margin-left: 10px; */
-  /* background-color: aquamarine; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* width: 200px; */
-  /* width: auto; */
-  /* height: 60px; */
-
-  /* & > div:first-child {
-    width: inherit;
-    background-color: #7474bb;
-    border: 0.5px solid red;
-   
-    
-  } */
-  /* &::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0; /* Covers the full height of the element */
-  // width: 10px; /* Custom resize area width */
-  //cursor: ew-resize; /* Resize cursor */
-  //z-index: 1;
-  //background-color: transparent; /* Invisible, but functional */
-  //} */
+  
 `;
 
 export const IconAndTitleContainer = styled.div`
@@ -410,20 +372,18 @@ export const IconAndTitleContainer = styled.div`
   justify-content: start;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;        /* Prevents text from wrapping */
-  overflow: hidden;           /* Hides overflowing text */
-  text-overflow: ellipsis; 
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis;
   /* max-width: 150px; */
-
 
   #text {
     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
 
-  
   /* &:after{
     content: "";
 
@@ -435,15 +395,22 @@ export const IconAndTitleContainer = styled.div`
     border-radius: 50%;
     background: linear-gradient(to right, transparent, #ffffff57);
   } */
-`
+`;
+export const CategoriesContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+`;
 
-
-
-
-
-
-
-
+export const CategoryBox = styled.div`
+  width: fit-content;
+  padding-inline: 3px;
+  background-color: #e09c9c;
+  border-radius: 5px;
+`;
 
 /*
   /* ${(props) =>
