@@ -1,6 +1,11 @@
 import React from "react";
-import { Div_Folder, Image_Folder, P_FolderName, ShortcutFolder } from "./FolderIcon.styled";
-import { FcOpenedFolder } from "react-icons/fc";
+import {
+  Div_Folder,
+  Image_Folder,
+  P_FolderName,
+  ShortcutFolder,
+} from "./FolderIcon.styled";
+import { FcOpenedFolder } from "react-icons/fc/index.js";
 
 const FolderIcon = ({ folder, setOpenedWindow, setFolderiIndex }) => {
   // console.log("folder cont", folder);
@@ -36,17 +41,17 @@ const FolderIcon = ({ folder, setOpenedWindow, setFolderiIndex }) => {
         setFolderiIndex(folder.id);
       }}
     >
-      {folder.swipeToSection ? 
-       <ShortcutFolder>
+      {folder.swipeToSection ? (
+        <ShortcutFolder>
           <FcOpenedFolder size={90} />
-          <img src="./assets/images/shortcut.png" alt=""/>
-      </ShortcutFolder>
-      :
-      <Image_Folder>
-      <FcOpenedFolder size={90} />
-    </Image_Folder> 
-      }
-     
+          <img src="./assets/images/shortcut.png" alt="" />
+        </ShortcutFolder>
+      ) : (
+        <Image_Folder>
+          <FcOpenedFolder size={90} />
+        </Image_Folder>
+      )}
+
       <P_FolderName>{folder.name}</P_FolderName>
     </Div_Folder>
   );

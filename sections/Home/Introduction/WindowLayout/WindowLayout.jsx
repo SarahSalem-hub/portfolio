@@ -16,15 +16,18 @@ import {
   SmallWinWrapper,
   WindowSideBar,
 } from "./window.styled";
-import { IoClose } from "react-icons/io5";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoClose } from "react-icons/io5/index.js";
+import {
+  FaChevronLeft,
+  FaChevronRight,
+} from "react-icons/fa/index.js";
 import FileComponent from "../FileComponent/FileComponent";
 import { handleClickOutside, handleEscape } from "./eventHandlers";
 import useDraggable from "../../../../hooks/useDraggable";
 import { filterFolders } from "./helpers";
 import useClickOutside from "@/hooks/useClickOutside";
-import { HiFolderOpen } from "react-icons/hi";
-import { GrFormFolder, GrFormNext } from "react-icons/gr";
+import { HiFolderOpen } from "react-icons/hi/index.js";
+import { GrFormFolder, GrFormNext } from "react-icons/gr/index.js";
 import { Resizable } from "./Resizable";
 import Link from "next/link";
 import Image from "next/image";
@@ -124,22 +127,20 @@ const WindowLayout = ({
                 <table>
                   <thead>
                     <tr>
-                      {["Name", "Category", "Website"].map(
-                        (title, index) => (
-                          <Resizable
-                            key={title}
-                            minWidth="150px" // Set a minimum width that fits content
-                          >
-                            {({ ref }) => (
-                              <th className="column">
-                                {title}
+                      {["Name", "Category", "Website"].map((title, index) => (
+                        <Resizable
+                          key={title}
+                          minWidth="150px" // Set a minimum width that fits content
+                        >
+                          {({ ref }) => (
+                            <th className="column">
+                              {title}
 
-                                <div className="resizer" ref={ref} />
-                              </th>
-                            )}
-                          </Resizable>
-                        )
-                      )}
+                              <div className="resizer" ref={ref} />
+                            </th>
+                          )}
+                        </Resizable>
+                      ))}
                     </tr>
                     <tr>
                       <th id="dividerRow" colspan="6"></th>

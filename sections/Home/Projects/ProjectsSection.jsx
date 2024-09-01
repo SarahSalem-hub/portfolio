@@ -19,11 +19,11 @@ import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import { Fredoka } from "@/components/fonts";
-import { FaCode } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import { FiMinus } from "react-icons/fi";
-import { AiFillGithub } from "react-icons/ai";
-import { FcOpenedFolder } from "react-icons/fc";
+import { FaCode } from "react-icons/fa/index.js";
+import { IoClose } from "react-icons/io5/index.js";
+import { FiMinus } from "react-icons/fi/index.js";
+import { AiFillGithub } from "react-icons/ai/index.js";
+import { FcOpenedFolder } from "react-icons/fc/index.js";
 import Link from "next/link";
 import SingleProjectComp from "./SingleProject";
 import { UserContext } from "@/pages/_app";
@@ -32,17 +32,15 @@ const ProjectsSection = ({ projects }) => {
   const [projectsCount, setProjectsCount] = useState(2);
   const scrollToRef = useRef();
   const { projectSection } = useContext(UserContext);
-  
-  const sortedProjects = projects?.sort((a,b)=>{
-    if(a.priority < b.priority){
-    return -1
-    }
-    else if (a.priority > b.priority){
-      return 1
-    }
-    else return 0
-  })
-   
+
+  const sortedProjects = projects?.sort((a, b) => {
+    if (a.priority < b.priority) {
+      return -1;
+    } else if (a.priority > b.priority) {
+      return 1;
+    } else return 0;
+  });
+
   return (
     <ProjectsSectionDiv ref={projectSection}>
       <FolderIconDiv>
@@ -54,13 +52,12 @@ const ProjectsSection = ({ projects }) => {
       <ProjsDiv ref={scrollToRef}>
         {sortedProjects?.length === 0
           ? [...Array(projectsCount)].map((project) => {
-            
-              return <SingleProjectComp key={project}/>;
+              return <SingleProjectComp key={project} />;
             })
           : sortedProjects?.map((project) => {
               return (
                 <SingleProjectComp
-                 key={project.id}
+                  key={project.id}
                   id={project.id}
                   name={project.name}
                   image={project.image}

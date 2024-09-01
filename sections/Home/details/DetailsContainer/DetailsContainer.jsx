@@ -28,7 +28,7 @@ import {
   TitleDiv,
   TriangleAffect,
 } from "./DetailsContainer.styled";
-import { IoClose } from "react-icons/io5";
+import { IoClose } from "react-icons/io5/index.js";
 // import { Title } from "../Home/details/Projects/ProjSection.styled";
 import ContactFormTab from "../ContactFormTab/ContactFormTab";
 import SkillsTab from "../SkillsTab/SkillsTab";

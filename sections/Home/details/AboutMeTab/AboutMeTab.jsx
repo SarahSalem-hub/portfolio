@@ -29,18 +29,18 @@ import {
   SingleInfo,
   SingleStatistic,
 } from "./AboutMeTab.styled";
-import { BiMenu, BiLockAlt } from "react-icons/bi";
-import { FaLock } from "react-icons/fa";
-import { IoIosArrowDown } from "react-icons/io";
-import { TfiHeart } from "react-icons/tfi";
+import { BiMenu, BiLockAlt } from "react-icons/bi/index.js";
+import { FaLock } from "react-icons/fa/index.js";
+import { IoIosArrowDown } from "react-icons/io/index.js";
+import { TfiHeart } from "react-icons/tfi/index.js";
 import Link from "next/link";
-import { BiInfinite } from "react-icons/bi";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BiInfinite } from "react-icons/bi/index.js";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai/index.js";
 import { fetchLikes, updateLikes } from "@/utils/firebase";
 import { LikeButton, Provider } from "@lyket/react";
 import { CircularProgress, Divider } from "@mui/material";
-import { GoLightBulb } from "react-icons/gi";
-import { FaLightbulb } from "react-icons/fa";
+import { GoLightBulb } from "react-icons/gi/index.js";
+import { FaLightbulb } from "react-icons/fa/index.js";
 import { Image, Popup } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 import { trackPromise, usePromiseTracker } from "react-promise-tracker";

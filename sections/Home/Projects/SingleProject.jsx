@@ -12,15 +12,15 @@ import {
   ProjLoadingDiv,
   Title,
 } from "./ProjSection.styled";
-import { FaCode, FaHotjar } from "react-icons/fa";
-import { FiMinus } from "react-icons/fi";
-import { IoClose } from "react-icons/io5";
+import { FaCode, FaHotjar } from "react-icons/fa/index.js";
+import { FiMinus } from "react-icons/fi/index.js";
+import { IoClose } from "react-icons/io5/index.js";
 import Link from "next/link";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai/index.js";
 import { Fredoka } from "@/components/fonts";
-import { TbLink, TbLinkOff } from "react-icons/tb";
+import { TbLink, TbLinkOff } from "react-icons/tb/index.js";
 import { EmojiSize } from "../details/AboutMeTab/AboutMeTab.styled";
-import { BiSolidHot } from "react-icons/bi";
+import { BiSolidHot } from "react-icons/bi/index.js";
 import { Box, Skeleton } from "@mui/material";
 
 function SingleProjectComp({

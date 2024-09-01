@@ -2,9 +2,9 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 // import { WindowBar } from "../Content/Content.styled";
 import { UrlTitle } from "@/sections/Home/Projects/ProjSection.styled";
-import { FaCode } from "react-icons/fa";
-import { IoClose } from "react-icons/io5";
-import { FiMinus } from "react-icons/fi";
+import { FaCode } from "react-icons/fa/index.js";
+import { IoClose } from "react-icons/io5/index.js";
+import { FiMinus } from "react-icons/fi/index.js";
 import {
   UrlContainer,
   UrlDiv,
