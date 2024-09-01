@@ -17,10 +17,7 @@ import {
   WindowSideBar,
 } from "./window.styled";
 import { IoClose } from "react-icons/io5/index.js";
-import {
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa/index.js";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa/index.js";
 import FileComponent from "../FileComponent/FileComponent";
 import { handleClickOutside, handleEscape } from "./eventHandlers";
 import useDraggable from "../../../../hooks/useDraggable";
@@ -169,7 +166,9 @@ const WindowLayout = ({
                             );
 
                             return file.link ? (
-                              <Link href={file.link}>{content}</Link>
+                              <Link href={file.link} target="_blank">
+                                {content}
+                              </Link>
                             ) : (
                               content
                             );
@@ -186,7 +185,15 @@ const WindowLayout = ({
                               : null}
                           </CategoriesContainer>
                         </td>
-                        <td>{file.website}</td>
+                        <td>
+                          {file.link ? (
+                            <Link href={file.link} target="_blank">
+                              {file.website}
+                            </Link>
+                          ) : (
+                            file.website
+                          )}
+                        </td>
                         <td></td>
                       </ListFolderItem>
                     ))}
