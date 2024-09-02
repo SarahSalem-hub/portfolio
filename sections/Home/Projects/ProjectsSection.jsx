@@ -42,7 +42,7 @@ const ProjectsSection = ({ projects }) => {
   });
 
   return (
-    <ProjectsSectionDiv ref={projectSection}>
+    <ProjectsSectionDiv ref={projectSection} id="projects">
       <FolderIconDiv>
         <ProSectionHeader> My Projects </ProSectionHeader>
         <FcOpenedFolder size={100} />
