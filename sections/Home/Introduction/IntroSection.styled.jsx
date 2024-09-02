@@ -9,6 +9,7 @@ export const ExternalIntroDiv = styled.div`
   justify-content: center;
   height: 80vh;
   margin-top: 146px;
+  position: relative;
   /* margin-bottom: 100px; */
   /* background-color: aliceblue; */
   @media only screen and (max-width: 1024px) {
@@ -16,7 +17,7 @@ export const ExternalIntroDiv = styled.div`
     margin-top: 20px;
     padding-top: 152px;
   }
-  @media only screen and (min-width: 2024px) {
+  @media only screen and (min-width: 1025px) {
     height: 800px;
    
     /* background-color: green; */
@@ -201,7 +202,7 @@ export const IconsContainer = styled.div`
 
   
   
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1024px) {
     
     /* background-color: #c57070;  */
     width: 70%;
