@@ -408,7 +408,7 @@ export const CategoriesContainer = styled.div`
 export const CategoryBox = styled.div`
   width: fit-content;
   padding-inline: 3px;
-  background-color: #e09c9c;
+  background-color: ${props => props.backgColor};
   border-radius: 5px;
 `;
 
