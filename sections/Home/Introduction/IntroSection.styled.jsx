@@ -18,8 +18,7 @@ export const ExternalIntroDiv = styled.div`
     padding-top: 152px;
   }
   @media only screen and (min-width: 1025px) {
-    height: 800px;
-   
+    height: 600px;
     /* background-color: green; */
   }
   @media only screen and (max-width: 700px) {

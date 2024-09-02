@@ -5,8 +5,8 @@ export const WidgContainer = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    left: 40px;
-    /* top: 160px; */
+    left: 35px;
+    top: 50px;
     /* background-color: blue; */
     gap: 20px;
 
