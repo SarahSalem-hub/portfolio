@@ -3,7 +3,8 @@ import styled from "@emotion/styled";
 import { Indie_Flower } from "next/font/google";
 
 export const AvailableContainer = styled.div`
-    width: auto;
+    /* max-width: 14rem; */
+    height: fit-content;
     /* height: 80px; */
     border-radius: 25px;
     padding: 15px;

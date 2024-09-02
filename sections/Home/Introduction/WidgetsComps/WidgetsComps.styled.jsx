@@ -10,6 +10,13 @@ export const WidgContainer = styled.div`
     /* background-color: blue; */
     gap: 20px;
 
+    @media only screen and (min-width: 701px) and (max-width: 1000px){
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     @media screen and (max-width: 700px){
         /* width: fit-content;
         height: auto;
