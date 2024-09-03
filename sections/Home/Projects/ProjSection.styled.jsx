@@ -130,6 +130,30 @@ export const Title = styled.div`
   font-family: ${Fredoka.style.fontFamily};
   line-height: normal;
 `;
+
+export const ProDescription = styled.p`
+    font-size: 18px;
+  color: #383f54;
+  margin-left: 10px;
+  font-family: ${Fredoka.style.fontFamily};
+  line-height: 1.5rem;
+  height: calc(1.5rem * 3 );
+  /* background-color: aquamarine; */
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 1.5rem;
+    /* width: 90%;
+    background: linear-gradient(120deg, transparent, #ffe4c4); */
+    width: 100%;
+    background: linear-gradient(109deg, transparent, #ffe4c4d4, #ffe4c4);
+  }
+`
 export const ProWindowBar = styled.div`
   background-color: #ffc68f;
   /* padding: 0 0 0 20px; */

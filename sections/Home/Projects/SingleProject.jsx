@@ -3,6 +3,7 @@ import {
   ImageAndDetails,
   LinksDiv,
   ProBarName,
+  ProDescription,
   ProDetails,
   ProImg,
   ProWindow,
@@ -74,13 +75,13 @@ function SingleProjectComp({
               )}
             </ProjImageDiv>
             <ProDetails>
-              <Title className={Fredoka.className} style={{ fontSize: "18px" }}>
+              <ProDescription >
                 {description ? (
-                  `${description.substring(0, 120)} ...`
+                  `${description.substring(0, 140)}`
                 ) : (
                   <Skeleton width="60%" />
                 )}
-              </Title>
+              </ProDescription>
             </ProDetails>
           </ImageAndDetails>
         </Link>

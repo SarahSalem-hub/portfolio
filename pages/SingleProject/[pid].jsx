@@ -30,7 +30,7 @@ const SingleProject = ({ project }) => {
                 variant="middle"
                 sx={{ borderBottomWidth: 2, marginLeft: 0 }}
               />
-              <Details>2023</Details>
+              <Details>{project.year ? project.year : "2023"}</Details>
               <Description>{project.description}</Description>
               <ProjSkillsDiv>
                 {project &&
