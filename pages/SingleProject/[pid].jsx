@@ -1,7 +1,4 @@
-import {
-  StyledContent,
-  TransparentLayout,
-} from "@/components/Content/Content.styled";
+
 import {
   Description,
   Details,
@@ -13,7 +10,8 @@ import {
   ProjectContainer,
   SingleProPic,
   SingleSkill,
-} from "@/components/Content/Projects/SingleProject.styled";
+} from "@/sections/Home/Projects/SingleProject.styled";
+import { StyledContent, TransparentLayout } from "@/sections/Home/HomeComponents.styled";
 import { db, fetchProjects } from "@/utils/firebase";
 import { Divider } from "@mui/material";
 import { doc, getDoc } from "firebase/firestore";
@@ -32,7 +30,7 @@ const SingleProject = ({ project }) => {
                 variant="middle"
                 sx={{ borderBottomWidth: 2, marginLeft: 0 }}
               />
-              <Details>2023</Details>
+              <Details>{project.year ? project.year : "2023"}</Details>
               <Description>{project.description}</Description>
               <ProjSkillsDiv>
                 {project &&
@@ -74,7 +72,7 @@ export async function getStaticProps({ params }) {
   const docRef = doc(db, "projects", params.pid);
   const data = await getDoc(docRef);
   const SingleProData = data.data();
-  
+
   return {
     props: {
       project: SingleProData,
