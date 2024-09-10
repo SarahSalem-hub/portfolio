@@ -11,10 +11,12 @@ export const WidgContainer = styled.div`
     gap: 20px;
 
     @media only screen and (min-width: 701px) and (max-width: 1024px){
+        margin-top: 40px;
         width: 90%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
 
     @media screen and (max-width: 700px){
@@ -23,7 +25,8 @@ export const WidgContainer = styled.div`
         top: 150px;
         left: 50%; */
         /* transform: translate(-50%, -50%); */
-        width: 100%;
+        width: 90%;
+        align-self: center;
         display: flex;
         flex-direction: row;
         justify-content: center;

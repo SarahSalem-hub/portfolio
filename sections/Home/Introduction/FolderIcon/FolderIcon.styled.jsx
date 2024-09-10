@@ -54,7 +54,8 @@ export const Div_Folder = styled.div`
   
   }
     @media only screen and (max-width: 700px) {
-    width: 100px;
+    width: 80px;
+    height: min-content;
   }
 `;
 
@@ -71,6 +72,8 @@ export const P_FolderName = styled.p`
   /* text-shadow: -3px 4px 17px rgba(52,46,46,0.6); */
   @media only screen and (max-width: 700px) {
     font-size: 12px;
+    /* letter-spacing: normal; */
+    white-space: nowrap;
   }
 
 `;

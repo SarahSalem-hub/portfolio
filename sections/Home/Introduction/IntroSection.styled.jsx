@@ -204,10 +204,11 @@ export const IconsContainer = styled.div`
   @media only screen and (max-width: 1024px) {
     
     /* background-color: #c57070;  */
-    width: 70%;
+    width: 100%;
     height:400px;
     padding: 0;
     margin: 0;
+    gap: 0px;
     justify-content: start;
     align-content: center;
   }
