@@ -10,7 +10,6 @@ import {
   ProWindowBar,
   ProjContainer,
   ProjImageDiv,
-  ProjLoadingDiv,
   Title,
 } from "./ProjSection.styled";
 import { FaCode, FaHotjar } from "react-icons/fa/index.js";
@@ -18,11 +17,25 @@ import { FiMinus } from "react-icons/fi/index.js";
 import { IoClose } from "react-icons/io5/index.js";
 import Link from "next/link";
 import { AiFillGithub } from "react-icons/ai/index.js";
-import { Fredoka } from "@/components/fonts";
 import { TbLink, TbLinkOff } from "react-icons/tb/index.js";
 import { EmojiSize } from "../details/AboutMeTab/AboutMeTab.styled";
-import { BiSolidHot } from "react-icons/bi/index.js";
 import { Box, Skeleton } from "@mui/material";
+
+const normalizeProjectLink = (link) => {
+  if (!link) return "";
+  return /^https?:\/\//i.test(link) ? link : `https://${link}`;
+};
+
+const getProjectHost = (link) => {
+  const normalizedLink = normalizeProjectLink(link);
+  if (!normalizedLink) return "";
+
+  try {
+    return new URL(normalizedLink).hostname.replace(/^www\./, "");
+  } catch (error) {
+    return normalizedLink.replace(/^https?:\/\//i, "");
+  }
+};
 
 function SingleProjectComp({
   id,
@@ -33,6 +46,9 @@ function SingleProjectComp({
   link,
   priority,
 }) {
+  const normalizedLink = normalizeProjectLink(link);
+  const projectHost = getProjectHost(link);
+
   return (
     <ProjContainer key={name ? name : "0"}>
       <ProWindowBar>
@@ -61,8 +77,29 @@ function SingleProjectComp({
         <Link href={`SingleProject/${id}`}>
           <ImageAndDetails>
             <ProjImageDiv>
-              {image ? (
-                <ProImg src={image} alt="project" />
+              {normalizedLink ? (
+                <ProImg>
+                  {/* <div className="preview-bar">
+                    <span className="preview-dot" />
+                    <span className="preview-dot" />
+                    <span className="preview-dot" />
+                    <span className="preview-url">{projectHost}</span>
+                  </div> */}
+                  <iframe
+                    src={normalizedLink}
+                    title={`${name || "Project"} preview`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    scrolling="no"
+                  />
+                  <div className="preview-overlay">
+                    <span>{projectHost || "Project preview"}</span>
+                  </div>
+                </ProImg>
+              ) : image ? (
+                <ProImg>
+                  <img src={image} alt={`${name || "Project"} preview`} />
+                </ProImg>
               ) : (
                 <Box
                   sx={{ pt: 0.5 }}

@@ -84,6 +84,7 @@ export const ProjImageDiv = styled.div`
   /* position: absolute; */
   /* height: 308px; */
   width: 100%;
+  min-height: 271px;
   /* object-fit: cover; */
 
   padding: 20px;
@@ -92,14 +93,92 @@ export const ProjImageDiv = styled.div`
   justify-content: center;
   /* background-color: blue; */
 `;
-export const ProImg = styled.img`
-  /* width: 400px;
- height: 231px; */
-
-  object-fit: cover;
-  object-position: 50% 50%;
+export const ProImg = styled.div`
+  width: 100%;
+  height: 298px;
+  overflow: hidden;
   border-radius: 15px;
   box-shadow: 5px 15px 15px #656363;
+  background: #f7f3ea;
+  position: relative;
+
+  img,
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  iframe {
+    background: #fff;
+    width: 250%;
+    height: 250%;
+    transform: scale(0.4);
+    transform-origin: top left;
+    pointer-events: none;
+  }
+
+  .preview-bar {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(255, 245, 232, 0.88);
+    border: 1px solid rgba(56, 63, 84, 0.18);
+    backdrop-filter: blur(4px);
+  }
+
+  .preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #383f54;
+    opacity: 0.45;
+    flex-shrink: 0;
+  }
+
+  .preview-url {
+    min-width: 0;
+    font-size: 12px;
+    color: #383f54;
+    font-family: ${Fredoka.style.fontFamily};
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .preview-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 28px 14px 12px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.45));
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+
+  .preview-overlay span {
+    color: #fff7ed;
+    font-size: 12px;
+    font-family: ${Fredoka.style.fontFamily};
+    letter-spacing: 0.02em;
+  }
 `;
 
 export const ProjLoadingDiv = styled.div`
